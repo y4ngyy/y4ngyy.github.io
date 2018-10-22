@@ -3,15 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>y4ngyy</title>
+    <title>nodejs学习(一) | y4ngyy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="y4ngyy">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="nodejs基础nodejs允许自己封装模块，使得编写程序可以模块化，便于维护整理。在一个js文件中写完封装的函数或对象后，可以使用exports或module.exports来将模块中的函数暴露给程序，使得整个程序可以使用，如： 12345function HelloWorld() &amp;#123;    return &apos;Hello, node-js!&apos;;&amp;#125;module.exports.H">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs学习(一)">
+<meta property="og:url" content="http://yoursite.com/2018/10/21/nodejs学习一/index.html">
 <meta property="og:site_name" content="y4ngyy">
+<meta property="og:description" content="nodejs基础nodejs允许自己封装模块，使得编写程序可以模块化，便于维护整理。在一个js文件中写完封装的函数或对象后，可以使用exports或module.exports来将模块中的函数暴露给程序，使得整个程序可以使用，如： 12345function HelloWorld() &amp;#123;    return &apos;Hello, node-js!&apos;;&amp;#125;module.exports.H">
 <meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2018-10-22T11:39:48.627Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="y4ngyy">
+<meta name="twitter:title" content="nodejs学习(一)">
+<meta name="twitter:description" content="nodejs基础nodejs允许自己封装模块，使得编写程序可以模块化，便于维护整理。在一个js文件中写完封装的函数或对象后，可以使用exports或module.exports来将模块中的函数暴露给程序，使得整个程序可以使用，如： 12345function HelloWorld() &amp;#123;    return &apos;Hello, node-js!&apos;;&amp;#125;module.exports.H">
     
 
     
@@ -162,16 +166,15 @@
 </aside>
 
             
-            <section id="main">
-    <article id="post-nodejs学习一" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-nodejs学习一" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
             <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/10/21/nodejs学习一/">nodejs学习(一)</a>
+        <h1 class="article-title" itemprop="name">
+            nodejs学习(一)
         </h1>
     
 
@@ -195,15 +198,25 @@
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><h2 id="nodejs基础"><a href="#nodejs基础" class="headerlink" title="nodejs基础"></a>nodejs基础</h2><p>nodejs允许自己封装模块，使得编写程序可以模块化，便于维护整理。在一个js文件中写完封装的函数或对象后，可以使用<code>exports</code>或<code>module.exports</code>来将模块中的函数暴露给程序，使得整<br>个程序可以使用，如：</p>
+            
+            <h2 id="nodejs基础"><a href="#nodejs基础" class="headerlink" title="nodejs基础"></a>nodejs基础</h2><p>nodejs允许自己封装模块，使得编写程序可以模块化，便于维护整理。在一个js文件中写完封装的函数或对象后，可以使用<code>exports</code>或<code>module.exports</code>来将模块中的函数暴露给程序，使得整<br>个程序可以使用，如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HelloWorld</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello, node-js!'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports.HelloWorld = HelloWorld;</span><br></pre></td></tr></table></figure>
 <p>要使用其他模块中的方法时，需要使用<code>require</code>来导入模块，如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> helloWorld = <span class="built_in">require</span>(<span class="string">'./helloword'</span>);</span><br></pre></td></tr></table></figure>
 <p>再说回<code>exports</code>和<code>module.exports</code>，两者的功能相同，区别在于，<code>exports</code>是<code>module.exports</code>的缩略写法，如下写法是相同意思：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports.HelloWorld = HelloWorld;</span><br><span class="line">exports.HelloWorld = HelloWorld;</span><br></pre></td></tr></table></figure></p>
-            <p class="article-more-link">
-                <a href="/2018/10/21/nodejs学习一/#more">Read More</a>
-            </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports.HelloWorld = HelloWorld;</span><br><span class="line">exports.HelloWorld = HelloWorld;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="创建简单的nodejs服务器"><a href="#创建简单的nodejs服务器" class="headerlink" title="创建简单的nodejs服务器"></a>创建简单的nodejs服务器</h2><p>nodejs封装由<code>http</code>模块实现服务器功能，只需引入使用即可，代码如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> helloWorld = <span class="built_in">require</span>(<span class="string">'./helloword'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (req.method != <span class="string">'GET'</span>) &#123;</span><br><span class="line">        res.statusCode = <span class="number">404</span>;</span><br><span class="line">        res.end(<span class="string">'Please Use GET method!'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        res.end(helloWorld.HelloWorld());</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">30000</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Server is started on 30000 port……'</span>);</span><br></pre></td></tr></table></figure>
+<p>先导入<code>http</code>模块，然后使用<code>createServer</code>方法，在方法中传入回调函数来处理用户请求。<br>回调函数由两个参数<code>req</code>和<code>res</code>,代表着请求和响应。<br><code>req</code>的属性有：<code>req.method</code>、<code>req.url</code>。<code>res</code>可以使用<code>setHeader(&#39;http响应头&#39;,&#39;参数&#39;)</code>方法来设置响应头参数,使用<code>res.statusCode = 200</code>来设置响应状态码<br>在回调函数的最后,需要调用<code>res.end()</code>来结束回调函数的响应。</p>
+<h2 id="创建静态文件服务器"><a href="#创建静态文件服务器" class="headerlink" title="创建静态文件服务器"></a>创建静态文件服务器</h2><p>要搭建静态文件服务器，需要将引入nodejs自带的<code>fs</code>模块进行文件的读取，并将读取到的文件数据以数据流的形式传输到浏览器端，代码如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> root = __dirname;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> filePath = path.join(root, url.parse(req.url).pathname);</span><br><span class="line">    <span class="keyword">var</span> stream = fs.createReadStream(filePath);</span><br><span class="line">    <span class="comment">// stream.on('data', function(chunk) &#123;</span></span><br><span class="line">    <span class="comment">//   res.write(chunk);  </span></span><br><span class="line">    <span class="comment">// &#125;)</span></span><br><span class="line">    <span class="comment">// stream.on('end', function() &#123;</span></span><br><span class="line">    <span class="comment">//   res.statusCode = 200;</span></span><br><span class="line">    <span class="comment">//   res.end();  </span></span><br><span class="line">    <span class="comment">// &#125;)</span></span><br><span class="line">    stream.pipe(res);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">3000</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Server is started on 3000 port……'</span>);</span><br></pre></td></tr></table></figure>
+<p>一步步来分析，<code>__dirname</code>为nodjs中的一个自带的属性变量，值为当前js文件所在的目录路径，在使用<code>url</code>模块的<code>parse</code>方法后，提取其中的<code>pathname</code>，使用<code>path.join()</code>方法将其组合成访问文件的绝对路径来对文件进行读取。不过这里需要一个异常处理，否则若访问文件不存在，没有异常处理则程序异常退出。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stream.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;...&#125;)</span><br></pre></td></tr></table></figure>
+<p>使用<code>fs.createReadStream()</code>方法来创建读取文件数据流，这时有两种方法对文件数据进行读取：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> stream = fs.createReadStream(filePath);</span><br><span class="line"><span class="comment">// 1.</span></span><br><span class="line">stream.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">  res.write(chunk);  </span><br><span class="line">&#125;)</span><br><span class="line">stream.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  res.statusCode = <span class="number">200</span>;</span><br><span class="line">  res.end();  </span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.</span></span><br><span class="line">stream.pipe(res);</span><br></pre></td></tr></table></figure>
+<p>第一种方法为设置事件监听器，写入回调函数，在<code>on(&#39;data&#39;，function(){})</code>中将文件数据块写入响应，在<code>on(&#39;data&#39;,function(){})</code>中结束响应处理<br>第二中方法为nodejs的高级机制，创建数据流后通过<code>pipe()</code>函数将数据流用管道接到<code>WriteStream</code>,且会在其中自动调用<code>res.end()</code>功能。任何<code>ReadStream</code>都能通过<code>pipe()</code>接到<code>WriteStream</code>中。</p>
+
         
         </div>
         <footer class="article-footer">
@@ -285,8 +298,14 @@
         </footer>
     </div>
     
+        
+
+    
 </article>
 
+
+    
+    
 
 </section>
             
