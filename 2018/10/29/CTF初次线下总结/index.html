@@ -3,15 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>y4ngyy</title>
+    <title>CTF初次线下总结 | y4ngyy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="y4ngyy">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="刚参加完2018年的江苏省领航杯的线下赛，总结一番。 这次线下赛的形式跟正常的AWD不同，原先准备的徐师傅的awd自动化框架没有实战的机会，有点可惜。比赛时给了四根网线，两根攻击网线连接靶场，两根防御网线连接加固机，一台二进制，一台web机，但是比赛中好像并没有看见AI对二进制机的攻击……，我主要负责加固部分，所以主要总结一下防御部分，和提醒自己的学习不足之处。 起手由于是第一次参加awd形式的线">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTF初次线下总结">
+<meta property="og:url" content="http://yoursite.com/2018/10/29/CTF初次线下总结/index.html">
 <meta property="og:site_name" content="y4ngyy">
+<meta property="og:description" content="刚参加完2018年的江苏省领航杯的线下赛，总结一番。 这次线下赛的形式跟正常的AWD不同，原先准备的徐师傅的awd自动化框架没有实战的机会，有点可惜。比赛时给了四根网线，两根攻击网线连接靶场，两根防御网线连接加固机，一台二进制，一台web机，但是比赛中好像并没有看见AI对二进制机的攻击……，我主要负责加固部分，所以主要总结一下防御部分，和提醒自己的学习不足之处。 起手由于是第一次参加awd形式的线">
 <meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2018-10-30T07:02:17.436Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="y4ngyy">
+<meta name="twitter:title" content="CTF初次线下总结">
+<meta name="twitter:description" content="刚参加完2018年的江苏省领航杯的线下赛，总结一番。 这次线下赛的形式跟正常的AWD不同，原先准备的徐师傅的awd自动化框架没有实战的机会，有点可惜。比赛时给了四根网线，两根攻击网线连接靶场，两根防御网线连接加固机，一台二进制，一台web机，但是比赛中好像并没有看见AI对二进制机的攻击……，我主要负责加固部分，所以主要总结一下防御部分，和提醒自己的学习不足之处。 起手由于是第一次参加awd形式的线">
     
 
     
@@ -162,16 +166,15 @@
 </aside>
 
             
-            <section id="main">
-    <article id="post-CTF初次线下总结" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-CTF初次线下总结" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
             <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/10/29/CTF初次线下总结/">CTF初次线下总结</a>
+        <h1 class="article-title" itemprop="name">
+            CTF初次线下总结
         </h1>
     
 
@@ -301,134 +304,24 @@
         </footer>
     </div>
     
-</article>
-
-
-
-    <article id="post-nodejs学习一" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
         
-        
-            <header class="article-header">
-                
+<nav id="article-nav">
     
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/10/21/nodejs学习一/">nodejs学习(一)</a>
-        </h1>
     
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/10/21/nodejs学习一/">
-            <time datetime="2018-10-21T13:22:55.000Z" itemprop="datePublished">2018-10-21</time>
+        <a href="/2018/10/21/nodejs学习一/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">nodejs学习(一)</div>
         </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><h2 id="nodejs基础"><a href="#nodejs基础" class="headerlink" title="nodejs基础"></a>nodejs基础</h2><p>nodejs允许自己封装模块，使得编写程序可以模块化，便于维护整理。在一个js文件中写完封装的函数或对象后，可以使用<code>exports</code>或<code>module.exports</code>来将模块中的函数暴露给程序，使得整<br>个程序可以使用，如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HelloWorld</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello, node-js!'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports.HelloWorld = HelloWorld;</span><br></pre></td></tr></table></figure>
-<p>要使用其他模块中的方法时，需要使用<code>require</code>来导入模块，如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> helloWorld = <span class="built_in">require</span>(<span class="string">'./helloword'</span>);</span><br></pre></td></tr></table></figure>
-<p>再说回<code>exports</code>和<code>module.exports</code>，两者的功能相同，区别在于，<code>exports</code>是<code>module.exports</code>的缩略写法，如下写法是相同意思：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports.HelloWorld = HelloWorld;</span><br><span class="line">exports.HelloWorld = HelloWorld;</span><br></pre></td></tr></table></figure></p>
-            <p class="article-more-link">
-                <a href="/2018/10/21/nodejs学习一/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/10/21/nodejs学习一/" data-id="cjnvdxm30000108buecbmrl9q" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
     
+</nav>
 
-        </footer>
-    </div>
+
     
 </article>
 
+
+    
+    
 
 </section>
             
