@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     
-    <title>CTF初次线下总结 | y4ngyy</title>
+    <title>docker学习 | y4ngyy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="刚参加完2018年的江苏省领航杯的线下赛，总结一番。 这次线下赛的形式跟正常的AWD不同，原先准备的徐师傅的awd自动化框架没有实战的机会，有点可惜。比赛时给了四根网线，两根攻击网线连接靶场，两根防御网线连接加固机，一台二进制，一台web机，但是比赛中好像并没有看见AI对二进制机的攻击……，我主要负责加固部分，所以主要总结一下防御部分，和提醒自己的学习不足之处。 起手由于是第一次参加awd形式的线">
+    <meta name="description" content="今天白天摸了一下docker，晚上来总结一波。首先安装docker，鉴于之前装了双系统后面发现没用的经验，直接用windows安装了docker，docker-windows只支持win10 pro和企业版，较早版本的windows只能安装docker-toolbox来使用docker。装完后可能会有个更换国内源的问题：docker-machine ssh default进入虚拟机，然后vi /v">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CTF初次线下总结">
-<meta property="og:url" content="http://yoursite.com/2018/10/29/CTF初次线下总结/index.html">
+<meta property="og:title" content="docker学习">
+<meta property="og:url" content="http://yoursite.com/2018/11/22/docker学习/index.html">
 <meta property="og:site_name" content="y4ngyy">
-<meta property="og:description" content="刚参加完2018年的江苏省领航杯的线下赛，总结一番。 这次线下赛的形式跟正常的AWD不同，原先准备的徐师傅的awd自动化框架没有实战的机会，有点可惜。比赛时给了四根网线，两根攻击网线连接靶场，两根防御网线连接加固机，一台二进制，一台web机，但是比赛中好像并没有看见AI对二进制机的攻击……，我主要负责加固部分，所以主要总结一下防御部分，和提醒自己的学习不足之处。 起手由于是第一次参加awd形式的线">
+<meta property="og:description" content="今天白天摸了一下docker，晚上来总结一波。首先安装docker，鉴于之前装了双系统后面发现没用的经验，直接用windows安装了docker，docker-windows只支持win10 pro和企业版，较早版本的windows只能安装docker-toolbox来使用docker。装完后可能会有个更换国内源的问题：docker-machine ssh default进入虚拟机，然后vi /v">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-10-30T07:02:16.000Z">
+<meta property="og:updated_time" content="2018-11-22T15:46:07.254Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CTF初次线下总结">
-<meta name="twitter:description" content="刚参加完2018年的江苏省领航杯的线下赛，总结一番。 这次线下赛的形式跟正常的AWD不同，原先准备的徐师傅的awd自动化框架没有实战的机会，有点可惜。比赛时给了四根网线，两根攻击网线连接靶场，两根防御网线连接加固机，一台二进制，一台web机，但是比赛中好像并没有看见AI对二进制机的攻击……，我主要负责加固部分，所以主要总结一下防御部分，和提醒自己的学习不足之处。 起手由于是第一次参加awd形式的线">
+<meta name="twitter:title" content="docker学习">
+<meta name="twitter:description" content="今天白天摸了一下docker，晚上来总结一波。首先安装docker，鉴于之前装了双系统后面发现没用的经验，直接用windows安装了docker，docker-windows只支持win10 pro和企业版，较早版本的windows只能安装docker-toolbox来使用docker。装完后可能会有个更换国内源的问题：docker-machine ssh default进入虚拟机，然后vi /v">
     
 
     
@@ -166,7 +166,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-CTF初次线下总结" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-docker学习" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -174,7 +174,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            CTF初次线下总结
+            docker学习
         </h1>
     
 
@@ -183,8 +183,8 @@
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/10/29/CTF初次线下总结/">
-            <time datetime="2018-10-29T13:37:56.000Z" itemprop="datePublished">2018-10-29</time>
+        <a href="/2018/11/22/docker学习/">
+            <time datetime="2018-11-22T10:44:23.000Z" itemprop="datePublished">2018-11-22</time>
         </a>
     </div>
 
@@ -199,29 +199,22 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>刚参加完2018年的江苏省领航杯的线下赛，总结一番。</p>
-<p>这次线下赛的形式跟正常的AWD不同，原先准备的徐师傅的awd自动化框架没有实战的机会，有点可惜。比赛时给了四根网线，两根攻击网线连接靶场，两根防御网线连接加固机，一台二进制，一台web机，但是比赛中好像并没有看见AI对二进制机的攻击……，我主要负责加固部分，所以主要总结一下防御部分，和提醒自己的学习不足之处。</p>
-<h2 id="起手"><a href="#起手" class="headerlink" title="起手"></a>起手</h2><p>由于是第一次参加awd形式的线下赛，所以赛前准备了许多起手式，参考了一番<a href="https://blog.csdn.net/like98k/article/details/80261603" target="_blank" rel="noopener">郁离歌</a>的起手式……</p>
-<ol>
-<li><p>连接上加固机，先<code>passwd</code>修改用户密码，然后XFTP将网站目录下载下来，再复制一份放着（非常重要的一步，在比赛中改着服务宕机了，差点就gg了，还好由ctrl+z大法），所以备份很重要。</p>
-</li>
-<li><p><strong>D盾</strong>扫描网站目录，当场扫除后门，直接进服务器找到删除。</p>
-</li>
-<li><p>给网站服务挂上waf(<code>require_once(&quot;capture.php&quot;)</code>)，这一步可以防住大多数的漏洞攻击，还好比赛的checker不是很严，waf一直工作得很好。</p>
-</li>
-<li><p><strong>seay代码审计</strong>自动扫描，给出审计方向。</p>
-</li>
-</ol>
-<p>##　起手完毕</p>
-<p>在起手完毕后，开始审计代码。比赛中给的代码漏洞都很典型，很容易就能看到<strong>sql注入</strong>、<strong>反序列化</strong>、<strong>文件包含</strong>、<strong>变量覆盖</strong>的洞，然后一脸懵逼……<br>发现了不懂加固也是非常的无奈，回想了一下，之前做题，线上赛之类的全是在攻击，加固的知识都没有怎么看，只能是在<strong>sql注入点</strong>加上<code>addslashes()</code>来防一下万能密码，对于<strong>反序列化的防御</strong>无可奈何……<br>不过waf大法是真的好用，前面不懂加固的洞好像全被waf防御了，看到了不懂加固的地方我们没有丢分。可惜waf不是万能的，比赛官方的exp还是打出了两个不太熟的洞，找不到地方，也不懂加固……分别是<strong>ssrf</strong>和<strong>xxe</strong>，xxe在刷题的时候还有接触到，但是不是特别地熟悉，ssrf是完全的懵逼。<strong>需要之后做一点功课了</strong>。</p>
-<h2 id="比赛黑科技"><a href="#比赛黑科技" class="headerlink" title="比赛黑科技"></a>比赛黑科技</h2><p>比赛之前就调侃了很多线下赛黑科技，像删除服务文件剩静态文件的搅屎操作，在这次比赛也来了那么一手操作。<br>比赛防御流程是这样的：防御服务器的根目录里面有一个<code>flaginfo.txt</code>文件，官方AI用exp去攻击服务器，读到了文件里面的字串后判定失分。<br>而我在看流量日志和文件变化的时候发现，不管是<strong>ssrf</strong>，还是<strong>xxe</strong>的洞爆出来，最后官方AI都是会用漏洞往<strong>uploads</strong>文件夹里面写入后门来获取文件字符。<br>所以……在最后一波攻击前，我……<code>chmod 700 uploads/</code>……谁也别想往里面写东西……成功防住了最后一波，还没有被check down(暗自窃喜……)。拿了第二……╮(￣▽ ￣)╭</p>
-<h2 id="最后总结"><a href="#最后总结" class="headerlink" title="最后总结"></a>最后总结</h2><ul>
-<li>需要加强防御知识的学习，之前学的攻击姿势要重新看一下<strong>防御姿势</strong></li>
-<li>还要学习更多的漏洞，熟悉陌生的漏洞姿势</li>
-<li>关于服务器方面，命令还是不是很熟，之前仗着外网好像没怎么用心记……到了内网一脸懵逼……</li>
-<li>php服务也需要继续加强学习……</li>
-</ul>
-<p>还有好多东西要学啊……(╯‵□′)╯︵┻━┻</p>
+            <p>今天白天摸了一下docker，晚上来总结一波。<br>首先安装docker，鉴于之前装了双系统后面发现没用的经验，直接用windows安装了docker，docker-windows只支持win10 pro和企业版，较早版本的windows只能安装docker-toolbox来使用docker。<br>装完后可能会有个更换国内源的问题：<code>docker-machine ssh default</code>进入虚拟机，然后<code>vi /var/lib/boot2docker/profile</code>，加一行<code>--registry-mirror=国内源</code><br>接下来一些命令：<br>拉取镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull 镜像名</span><br></pre></td></tr></table></figure>
+<p>删除镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image rm 镜像名</span><br></pre></td></tr></table></figure>
+<p>镜像列表</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+<p>创建容器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 本机端口:容器端口 -d(后台运行) --name 容器命名 --rm(若容器停止则立即删除) 要使用的镜像名</span><br></pre></td></tr></table></figure>
+<p>将本机的文件挂载到容器中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d 镜像名(nginx apache……) -v <span class="variable">$PWD</span>/html:/usr/share/www/html</span><br></pre></td></tr></table></figure>
+<p>查看容器运行进程</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<p>查看容器日志</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs 容器名</span><br></pre></td></tr></table></figure>
+<p>要创建更加完整的环境，大概有两种方法，第一种是用Dockerfile创建linux容器并在其中下载配置相应的环境。第二种是使用多容器协同的方式使用。(Dockerfile要相对简单一些)</p>
+<p>之后再找时间继续学习Dockerfile的具体部署。</p>
 
         
         </div>
@@ -232,7 +225,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/10/29/CTF初次线下总结/" data-id="cjosrsk5o00028giih72ys516" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2018/11/22/docker学习/" data-id="cjosrsk5900008giinp83k884" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -307,19 +300,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/11/22/docker学习/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    docker学习
-                
-            </div>
-        </a>
     
-    
-        <a href="/2018/10/21/nodejs学习一/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/10/29/CTF初次线下总结/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">nodejs学习(一)</div>
+            <div class="article-nav-title">CTF初次线下总结</div>
         </a>
     
 </nav>
