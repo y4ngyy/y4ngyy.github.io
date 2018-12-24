@@ -1,0 +1,15 @@
+.code pre,
+.gutter pre {
+  margin-bottom: 0;
+}
+.gutter pre {
+  padding-right: 20px;
+  text-align: right;
+}
+code {
+  background: #fafafa;
+  padding: 2px;
+  border-radius: 3px;
+  color: #d05;
+  border: 1px solid #ddd;
+}

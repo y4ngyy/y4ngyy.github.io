@@ -1,0 +1,38 @@
+.content-container .content {
+  margin: 20px;
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #d8d8d8;
+}
+.content-container .archives .archive-item {
+  width: 90%;
+  margin: auto;
+}
+.content-container .archives .nav-link:hover {
+  background: #eaeaea;
+}
+.content article {
+  width: 90%;
+  margin: auto;
+}
+.read-more {
+  background: #8cc2fb;
+  border-radius: 2em;
+  padding: 6px;
+  color: #fff;
+}
+.read-more:hover {
+  text-decoration: none;
+  color: #fff;
+  background: #5398fb;
+}
+#title {
+  color: #000;
+}
+#title:hover {
+  text-decoration: none;
+  color: #000;
+}
+.content-container footer {
+  font-size: 1.25em;
+}

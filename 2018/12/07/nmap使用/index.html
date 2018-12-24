@@ -48,20 +48,21 @@
 </div>
 </div>
 <div class="content-container">
-    <div class="content archives shadow rounded">
-        <h2 class="text-left">Archive</h2>
+    <div class="content shadow rounded">
+        <h2 class="text-center">nmap使用</h2>
+        <div class="text-center">
+            <i class="fa fa-calendar"></i>
+            <span>2018-12-07</span>
+        </div>
         <hr width="90%" color="#ddd">
-        
-        <a href="/2018/10/29/CTF初次线下总结/" class="nav-link text-dark"><div class="archive-item rounded">
-                <span class="text-left mr-5 text-secondary">2018-10-29</span>
-                <span style="font-size: 1.25em">CTF初次线下总结</span>
-            </div></a>
-        
-        <a href="/2018/10/21/nodejs学习一/" class="nav-link text-dark"><div class="archive-item rounded">
-                <span class="text-left mr-5 text-secondary">2018-10-21</span>
-                <span style="font-size: 1.25em">nodejs学习(一)</span>
-            </div></a>
-        
+        <article>
+                <p>nmap参数总结</p>
+<h2 id="目标说明"><a href="#目标说明" class="headerlink" title="目标说明"></a>目标说明</h2><p>192.168.0.0/24 表示扫描192.168.0.0-192.168.0.255范围的IP</p>
+<h2 id="主机发现"><a href="#主机发现" class="headerlink" title="主机发现"></a>主机发现</h2><p><strong>-sP</strong> 以ping的方式扫描主机<br><strong>-sn</strong> ping侦测主机，不扫描端口</p>
+<h2 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h2><p><strong>-sS</strong> TCP SYN扫描，是默认的扫描方式<br><strong>-sT</strong> TCP connect()扫描，要三次握手<br><strong>-sU</strong> UDP方式扫描</p>
+<p>默认情况下对1-1024端口进行扫描<br><strong>-p</strong> 指定端口扫描范围，-p-为扫描1-65535端口<br><strong>-F</strong> 快速有限的端口扫描<br><strong>–top-ports (numeber)</strong> 扫描常规端口</p>
+
+        </article>
         <hr width="90%" color="#ddd">
     </div>
     <div class="content text-center mb-2"><span>Powered By Hexo | theme: <a href="y4ngyy.xyz">y4ngyy</a></span></div>
@@ -79,6 +80,5 @@
     });
 </script>
 </div>
-
 </body>
 </html>

@@ -1,0 +1,49 @@
+.content-container {
+  background: #ddd;
+  position: absolute;
+  min-height: 100%;
+  right: 0;
+  left: 300px;
+}
+.content-container .content {
+  margin: 40px;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #d8d8d8;
+}
+.content-container .archives .archive-item {
+  width: 90%;
+  margin: auto;
+}
+.content-container .archives .nav-link:hover {
+  background: #eaeaea;
+}
+.content article {
+  width: 90%;
+  margin: auto;
+}
+.read-more {
+  background: #8cc2fb;
+  border-radius: 2em;
+  padding: 6px;
+  color: #fff;
+}
+.read-more:hover {
+  text-decoration: none;
+  color: #fff;
+  background: #5398fb;
+}
+#title {
+  color: #000;
+}
+#title:hover {
+  text-decoration: none;
+  color: #000;
+}
+.content-container footer {
+  position: absolute;
+  bottom: 0;
+  font-size: 1.25em;
+  left: 0;
+  right: 0;
+}

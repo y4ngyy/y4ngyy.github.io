@@ -48,20 +48,17 @@
 </div>
 </div>
 <div class="content-container">
-    <div class="content archives shadow rounded">
-        <h2 class="text-left">Archive</h2>
+    <div class="content shadow rounded">
+        <h2 class="text-center">【PWN】漏洞函数笔记</h2>
+        <div class="text-center">
+            <i class="fa fa-calendar"></i>
+            <span>2018-11-22</span>
+        </div>
         <hr width="90%" color="#ddd">
-        
-        <a href="/2018/10/29/CTF初次线下总结/" class="nav-link text-dark"><div class="archive-item rounded">
-                <span class="text-left mr-5 text-secondary">2018-10-29</span>
-                <span style="font-size: 1.25em">CTF初次线下总结</span>
-            </div></a>
-        
-        <a href="/2018/10/21/nodejs学习一/" class="nav-link text-dark"><div class="archive-item rounded">
-                <span class="text-left mr-5 text-secondary">2018-10-21</span>
-                <span style="font-size: 1.25em">nodejs学习(一)</span>
-            </div></a>
-        
+        <article>
+                <h2 id="snprintf"><a href="#snprintf" class="headerlink" title="snprintf"></a>snprintf</h2><p><code>snprintf()</code>，函数原型为<code>int snprintf(char *str, size_t size, const char *format, …)</code><br>将可变个参数(…)按照format格式化成字符串，然后将其复制到str中 (1) 如果格式化后的字符串长度 &lt; size，则将此字符串全部复制到str中，并给其后添加一个字符串结束符(‘\0’)； (2) 如果格式化后的字符串长度 &gt;= size，则只将其中的(size-1)个字符复制到str中，并给其后添加一个字符串结束符(‘\0’)，返回值为欲写入的字符串长度。<br><em>漏洞点</em>：函数返回值为<strong>欲写入的字符串长度</strong>，若用来做数组下标，可能会产生溢出。</p>
+
+        </article>
         <hr width="90%" color="#ddd">
     </div>
     <div class="content text-center mb-2"><span>Powered By Hexo | theme: <a href="y4ngyy.xyz">y4ngyy</a></span></div>
@@ -79,6 +76,5 @@
     });
 </script>
 </div>
-
 </body>
 </html>

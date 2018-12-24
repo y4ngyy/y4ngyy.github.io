@@ -1,0 +1,20 @@
+.sidebar {
+  background: #fff;
+  position: fixed;
+  left: 0;
+  height: 100%;
+  width: 300px;
+  padding: 0;
+}
+.sidebar .nav-clapse {
+  display: none;
+}
+.sidebar .head {
+  height: 300px;
+}
+.sidebar .head img {
+  margin-top: 86px;
+  width: 128px;
+  height: 128px;
+  border-radius: 300px;
+}
