@@ -153,6 +153,101 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-android-OkHttp3总结与封装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/17/android-OkHttp3总结与封装/">【Android】OkHttp3总结与封装</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/17/android-OkHttp3总结与封装/" class="archive-article-date">
+  	<time datetime="2019-03-17T02:06:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-17</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><p>在app目录下的build.gradle中添加依赖：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="string">'com.squareup.okhttp3:okhttp:3.13.1'</span></span><br><span class="line">implementation <span class="string">'com.squareup.okio:okio:2.2.2'</span></span><br></pre></td></tr></table></figure>
+<h3 id="GET方法"><a href="#GET方法" class="headerlink" title="GET方法"></a>GET方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">OkHttpClient client = <span class="keyword">new</span> OkHttpClient.Builder().build();</span><br><span class="line">Request.Builder builder = <span class="keyword">new</span> Request.Builder().url(url);</span><br><span class="line">builder.method(<span class="string">"GET"</span>, <span class="keyword">null</span>);</span><br><span class="line">Request request = builder.build();</span><br><span class="line">Call call = client.newCall(request);</span><br><span class="line">call.enqueue(<span class="keyword">new</span> Callback() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call, IOException e)</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call, Response response)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>GET参数的传递可以使用拼接字符串的方式直接拼接到url中。</p>
+<h3 id="POST方法"><a href="#POST方法" class="headerlink" title="POST方法"></a>POST方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">OkHttpClient client = <span class="keyword">new</span> OkHttpClient.Builder().build();</span><br><span class="line">FormBody.Builder formBody = <span class="keyword">new</span> FormBody.Builder();</span><br><span class="line">formBody.add(key,value);</span><br><span class="line">... <span class="comment">// 添加参数</span></span><br><span class="line">RequestBody form = formBody.build();</span><br><span class="line">Request.Builder builder = <span class="keyword">new</span> Request.Builder();</span><br><span class="line">Request request = builder.post(form)</span><br><span class="line">        .url(url)</span><br><span class="line">        .build();</span><br><span class="line">Call call = client.newCall(request);</span><br><span class="line">call.enqueue(<span class="keyword">new</span> Callback() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call, IOException e)</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call, Response response)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>由于OkHttp发送请求的方式比较繁琐，需要构建许多参数，所以需要我们自己进行封装，以下是我的封装方式:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">- <span class="doctag">@author</span>:y4ngyy</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpClient</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> OkHttpClient client;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> HttpClient mClient;</span><br><span class="line">    <span class="keyword">private</span> Context context;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">HttpClient</span><span class="params">(Context c)</span> </span>&#123;</span><br><span class="line">        context = c;</span><br><span class="line">        client = <span class="keyword">new</span> OkHttpClient.Builder()</span><br><span class="line">                .cookieJar(<span class="keyword">new</span> PersistentCookieJar(<span class="keyword">new</span> SetCookieCache(), <span class="keyword">new</span> SharedPrefsCookiePersistor(context)))</span><br><span class="line">                .followRedirects(<span class="keyword">true</span>)</span><br><span class="line">                .followSslRedirects(<span class="keyword">true</span>)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> HttpClient <span class="title">getInstance</span><span class="params">(Context c)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mClient == <span class="keyword">null</span>) &#123;</span><br><span class="line">            mClient = <span class="keyword">new</span> HttpClient(c);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>  mClient;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// GET方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">(String url, HashMap&lt;String,String&gt; param, MyCallback callback)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 拼接请求参数</span></span><br><span class="line">        <span class="keyword">if</span> (!param.isEmpty()) &#123;</span><br><span class="line">            StringBuffer buffer = <span class="keyword">new</span> StringBuffer(url);</span><br><span class="line">            buffer.append(<span class="string">'?'</span>);</span><br><span class="line">            <span class="keyword">for</span> (Map.Entry&lt;String,String&gt; entry: param.entrySet()) &#123;</span><br><span class="line">                buffer.append(entry.getKey());</span><br><span class="line">                buffer.append(<span class="string">'='</span>);</span><br><span class="line">                buffer.append(entry.getValue());</span><br><span class="line">                buffer.append(<span class="string">'&amp;'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            buffer.deleteCharAt(buffer.length()-<span class="number">1</span>);</span><br><span class="line">            url = buffer.toString();</span><br><span class="line">        &#125;</span><br><span class="line">        Request.Builder builder = <span class="keyword">new</span> Request.Builder().url(url);</span><br><span class="line">        builder.method(<span class="string">"GET"</span>, <span class="keyword">null</span>);</span><br><span class="line">        Request request = builder.build();</span><br><span class="line">        Call call = client.newCall(request);</span><br><span class="line">        call.enqueue(<span class="keyword">new</span> Callback() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call, IOException e)</span> </span>&#123;</span><br><span class="line">                callback.failed(e);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call, Response response)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">                callback.success(response);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">(String url, MyCallback callback)</span> </span>&#123;</span><br><span class="line">        get(url, <span class="keyword">new</span> HashMap&lt;String, String&gt;(), callback);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// POST 方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">post</span><span class="params">(String url, HashMap&lt;String, String&gt; param, MyCallback callback)</span> </span>&#123;</span><br><span class="line">        FormBody.Builder formBody = <span class="keyword">new</span> FormBody.Builder();</span><br><span class="line">        <span class="keyword">if</span>(!param.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">for</span> (Map.Entry&lt;String,String&gt; entry: param.entrySet()) &#123;</span><br><span class="line">                formBody.add(entry.getKey(),entry.getValue());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        RequestBody form = formBody.build();</span><br><span class="line">        Request.Builder builder = <span class="keyword">new</span> Request.Builder();</span><br><span class="line">        Request request = builder.post(form)</span><br><span class="line">                .url(url)</span><br><span class="line">                .build();</span><br><span class="line">        Call call = client.newCall(request);</span><br><span class="line">        call.enqueue(<span class="keyword">new</span> Callback() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call, IOException e)</span> </span>&#123;</span><br><span class="line">                callback.failed(e);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call, Response response)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">                callback.success(response);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyCallback</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">success</span><span class="params">(Response res)</span> <span class="keyword">throws</span> IOException</span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">failed</span><span class="params">(IOException e)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>想法有以下几点：</p>
+<ol>
+<li>在<code>get()</code>和<code>post()</code>方法中，将需要的参数以HashMap传递键值对，并把相应操作封装。</li>
+<li>第二个<code>get()</code>重载是考虑到不需要参数的GET请求的情况。</li>
+<li>留下<code>myCallback</code>接口来对不同请求做处理。</li>
+<li>由于需要保持cookie来做登录等操作，所以用到了第三方库<a href="https://github.com/franmontiel/PersistentCookieJar/" target="_blank" rel="noopener">PersistentCookieJar</a></li>
+<li>考虑到cookie的问题，在不同的activity间需要使用同一个实例才行，有想过使用Intent序列化传递对象，但由于activity太多，传递太繁琐，所以直接写成单例模式。</li>
+</ol>
+<p>对于OkHttp的源码还没有深究，有时间再继续研究。</p>
+<blockquote>
+<p>只是菜鸡一个..有错还请指正..继续努力学习</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/17/android-OkHttp3总结与封装/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-git版本控制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -811,83 +906,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/12/06/内网链路搭建总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java数据结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/22/Java数据结构/">Java数据结构</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/22/Java数据结构/" class="archive-article-date">
-  	<time datetime="2018-11-22T10:44:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        
-      </header>
-    
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> []myArray; ---&gt; 声明</span><br><span class="line"><span class="keyword">int</span> []myArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>]; ---&gt;实例化</span><br></pre></td></tr></table></figure>
-<h1 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/22/Java数据结构/">展开全文 >></a>
         </p>
       
 
