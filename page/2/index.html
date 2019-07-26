@@ -42,7 +42,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #63aabc"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -95,7 +95,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #63aabc"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -252,6 +252,91 @@
 
 
   
+    <article id="post-nodejs-Express" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/21/nodejs-Express/">【NodeJS】Express框架</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/21/nodejs-Express/" class="archive-article-date">
+  	<time datetime="2018-10-21T13:22:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-21</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a>Hello world</h2><p>构建最简单的express app</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line">app = express();</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>,()=&gt;&#123;<span class="built_in">console</span>.log(<span class="string">'app start!'</span>);&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>express路由形式：<code>app.method(PATH, handler)</code>, method包括post、get、put和delete。<br><code>app.all(PATH, handler)</code>, 可以反应四种请求<br>路由路径写为<code>/:title</code>，则在请求<code>/anything</code>的时候，在req.param.title中可以获取到anything的值</p>
+<h2 id="静态文件"><a href="#静态文件" class="headerlink" title="静态文件"></a>静态文件</h2><p>express内置中间件函数<code>express.static()</code>，<code>app.use(express.static(&#39;public&#39;))</code>将public目录对外开放访问。<br>在程序中可以直接用<code>css/style.css</code>的方式直接引入样式。</p>
+<h2 id="获取get和post的参数"><a href="#获取get和post的参数" class="headerlink" title="获取get和post的参数"></a>获取get和post的参数</h2><p>Get参数直接使用<code>req.query.</code>访问。<br>Post参数直接使用<code>req.body.</code>访问。</p>
+<h2 id="cookie-amp-session"><a href="#cookie-amp-session" class="headerlink" title="cookie &amp; session"></a>cookie &amp; session</h2><p>设置cookie首先需要引入<code>cookie-parser</code>模块，然后可以直接通过 <code>res.cookie(name, value, [options])</code> 进行设置，若需要使用<code>{signed: true}</code> 选项，则需要在引入中间件<code>cookie-parser</code>时传入secret key: <code>app.use(cookieParser(secret))</code>。<br>设置session需要引入<code>express-session</code>模块，首先设置：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">app.use(session(&#123;</span><br><span class="line">  secret:<span class="string">'y4ngyy'</span>,</span><br><span class="line">  saveUninitialized: <span class="literal">false</span>,</span><br><span class="line">  resave: <span class="literal">false</span>,</span><br><span class="line">  cookie: &#123;</span><br><span class="line">    maxAge: <span class="number">60000</span>,</span><br><span class="line">    httpOnly: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<p>然后登陆时可以如下使用:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">req.session.regenerate(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">        <span class="keyword">return</span> res.json(&#123;<span class="attr">status</span>: <span class="literal">false</span>, <span class="attr">err</span>:<span class="string">'Something wrong in session'</span>&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    req.session.username = result[<span class="number">0</span>].username;</span><br><span class="line">    res.json(&#123;<span class="attr">status</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/FrontEnd//" class="article-tag-list-link color4">FrontEnd</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/21/nodejs-Express/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-nodejs-基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -297,7 +382,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/前端//" class="article-tag-list-link color3">前端</a>
+        			<a href="/categories/FrontEnd//" class="article-tag-list-link color4">FrontEnd</a>
         		</li>
       		
 		</ul>
@@ -307,91 +392,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/10/21/nodejs-基础知识/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-nodejs-Express" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/21/nodejs-Express/">【NodeJS】Express框架</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/21/nodejs-Express/" class="archive-article-date">
-  	<time datetime="2018-10-21T13:22:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-21</time>
-</a>
-        
-      </header>
-    
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a>Hello world</h2><p>构建最简单的express app</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line">app = express();</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>,()=&gt;&#123;<span class="built_in">console</span>.log(<span class="string">'app start!'</span>);&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>express路由形式：<code>app.method(PATH, handler)</code>, method包括post、get、put和delete。<br><code>app.all(PATH, handler)</code>, 可以反应四种请求</p>
-<h2 id="静态文件"><a href="#静态文件" class="headerlink" title="静态文件"></a>静态文件</h2><p>express内置中间件函数<code>express.static()</code>，<code>app.use(express.static(&#39;public&#39;))</code>将public目录对外开放访问。<br>在程序中可以直接用<code>css/style.css</code>的方式直接引入样式。</p>
-<h2 id="获取get和post的参数"><a href="#获取get和post的参数" class="headerlink" title="获取get和post的参数"></a>获取get和post的参数</h2><p>Get参数直接使用<code>req.query.</code>访问。<br>Post参数直接使用<code>req.body.</code>访问。</p>
-<h2 id="cookie-amp-session"><a href="#cookie-amp-session" class="headerlink" title="cookie &amp; session"></a>cookie &amp; session</h2><p>设置cookie首先需要引入<code>cookie-parser</code>模块，然后可以直接通过 <code>res.cookie(name, value, [options])</code> 进行设置，若需要使用<code>{signed: true}</code> 选项，则需要在引入中间件<code>cookie-parser</code>时传入secret key: <code>app.use(cookieParser(secret))</code>。<br>设置session需要引入<code>express-session</code>模块，首先设置：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">app.use(session(&#123;</span><br><span class="line">  secret:<span class="string">'y4ngyy'</span>,</span><br><span class="line">  saveUninitialized: <span class="literal">false</span>,</span><br><span class="line">  resave: <span class="literal">false</span>,</span><br><span class="line">  cookie: &#123;</span><br><span class="line">    maxAge: <span class="number">60000</span>,</span><br><span class="line">    httpOnly: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
-<p>然后登陆时可以如下使用:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">req.session.regenerate(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">        <span class="keyword">return</span> res.json(&#123;<span class="attr">status</span>: <span class="literal">false</span>, <span class="attr">err</span>:<span class="string">'Something wrong in session'</span>&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    req.session.username = result[<span class="number">0</span>].username;</span><br><span class="line">    res.json(&#123;<span class="attr">status</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端//" class="article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/21/nodejs-Express/">展开全文 >></a>
         </p>
       
 
