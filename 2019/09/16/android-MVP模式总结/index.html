@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: FrontEnd | y4ngyy</title>
+  <title>【Android】MVP模式总结 | y4ngyy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="无所事事,游手好闲">
-<meta property="og:type" content="website">
-<meta property="og:title" content="y4ngyy">
-<meta property="og:url" content="http://yoursite.com/categories/FrontEnd/index.html">
+  <meta name="description" content="在短学期的软件实训中编写了Android APP，尝试使用了MVP模式查阅了许多资料以后，终于大致理解了如何将MVP模式应用在实际的代码编写上总结一下，希望大家指正错误。  前言在开始学习MVP模式时，许多资料会给出一张结构图。对于MVP模式的理论，大概就是将UI操作和业务逻辑层分离，在View层中进行页面UI的更新，而将业务逻辑放在Presenter中，且View不直接操作Model，而是用过">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Android】MVP模式总结">
+<meta property="og:url" content="http://yoursite.com/2019/09/16/android-MVP模式总结/index.html">
 <meta property="og:site_name" content="y4ngyy">
-<meta property="og:description" content="无所事事,游手好闲">
+<meta property="og:description" content="在短学期的软件实训中编写了Android APP，尝试使用了MVP模式查阅了许多资料以后，终于大致理解了如何将MVP模式应用在实际的代码编写上总结一下，希望大家指正错误。  前言在开始学习MVP模式时，许多资料会给出一张结构图。对于MVP模式的理论，大概就是将UI操作和业务逻辑层分离，在View层中进行页面UI的更新，而将业务逻辑放在Presenter中，且View不直接操作Model，而是用过">
 <meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://yoursite.com/assets/image/MVP-structure.jpg">
+<meta property="og:image" content="http://yoursite.com/assets/image/MVP-category.png">
+<meta property="og:updated_time" content="2019-09-12T07:50:03.149Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="y4ngyy">
-<meta name="twitter:description" content="无所事事,游手好闲">
+<meta name="twitter:title" content="【Android】MVP模式总结">
+<meta name="twitter:description" content="在短学期的软件实训中编写了Android APP，尝试使用了MVP模式查阅了许多资料以后，终于大致理解了如何将MVP模式应用在实际的代码编写上总结一下，希望大家指正错误。  前言在开始学习MVP模式时，许多资料会给出一张结构图。对于MVP模式的理论，大概就是将UI操作和业务逻辑层分离，在View层中进行页面UI的更新，而将业务逻辑放在Presenter中，且View不直接操作Model，而是用过">
+<meta name="twitter:image" content="http://yoursite.com/assets/image/MVP-structure.jpg">
   
     <link rel="alternative" href="/atom.xml" title="y4ngyy" type="application/atom+xml">
   
@@ -151,140 +155,235 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article class="article article-type-post show">
-  <header class="article-header">
-  <h1 class="article-title" itemprop="name">
+            <article id="post-android-MVP模式总结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-  </h1>
-  </header>
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【Android】MVP模式总结
+    </h1>
+  
+
+        
+        <a href="/2019/09/16/android-MVP模式总结/" class="archive-article-date">
+  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+      <span class="btn-bg"></span>
+      <span class="btn-text">文章导航</span>
+      </p>
+<div id="toc-article" class="toc-article">
+    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+    <strong class="toc-title">文章目录</strong>
+       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工程结构"><span class="toc-number">2.</span> <span class="toc-text">工程结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体实现"><span class="toc-number">3.</span> <span class="toc-text">具体实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在Activity文件中"><span class="toc-number">3.1.</span> <span class="toc-text">在Activity文件中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在Presnter类中"><span class="toc-number">3.2.</span> <span class="toc-text">在Presnter类中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在接口中"><span class="toc-number">3.3.</span> <span class="toc-text">在接口中</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后一点"><span class="toc-number">5.</span> <span class="toc-text">最后一点</span></a></li></ol>
+     </div>
+<script type="text/javascript">
+function showToc(){
+    var toc_article = document.getElementById("toc-article");
+    var show_toc_btn = document.getElementById("show-toc-btn");
+    toc_article.setAttribute("style","display:block");
+    show_toc_btn.setAttribute("style","display:none");
+    };
+function showBtn(){
+    var toc_article = document.getElementById("toc-article");
+    var show_toc_btn = document.getElementById("show-toc-btn");
+    toc_article.setAttribute("style","display:none");
+    show_toc_btn.setAttribute("style","display:block");
+    };
+</script>
+  
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>在短学期的软件实训中编写了Android APP，尝试使用了MVP模式<br>查阅了许多资料以后，终于大致理解了如何将MVP模式应用在实际的代码编写上<br>总结一下，希望大家指正错误。</p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在开始学习MVP模式时，许多资料会给出一张结构图。<br><img src="/assets/image/MVP-structure.jpg" alt="structure"><br>对于MVP模式的理论，大概就是将UI操作和业务逻辑层分离，在View层中进行页面UI的更新，而将业务逻辑放在Presenter中，且View不直接操作Model，而是用过Presenter进行操作。<br>然而，在了解了MVP的理论之后，我依然不知道该从何下手使用MVP模式来构建Android应用。所以，我想从我刚写的实例出发，对MVP模式进行总结。</p>
+<h2 id="工程结构"><a href="#工程结构" class="headerlink" title="工程结构"></a>工程结构</h2><p>在我的实例中，我的工程模块目录是这样子的。<br><img src="/assets/image/MVP-category.png" alt="category"><br>按功能来进行划分模块，便于进行管理。每个文件功能如下：</p>
+<ul>
+<li>LoginActivity activity文件，实现ILoginView接口(因为界面操作需要)</li>
+<li>ILoginView MVP模式中的View接口，定义需要进行的界面UI操作，比如弹出加载框，按钮disable等等</li>
+<li>ILoginPresenter MVP模式中的Presenter接口，定义业务逻辑操作，比如使用retrofit进行请求登录，获取信息后更新model等操作</li>
+<li>LoginPresenterCompl 实现ILoginPresenter接口，具体实现网络请求的操作等等。<br>以上就是MVP模式中重要的的几个接口和实现类，当然若是由Model操作还需要定义一个Model接口和一个实现接口的类。<br>有些人可能会问，只一个登录功能就要定义这么多的文件，MVP这么麻烦？<br>而我只能说，当使用上了之后就会发现开发不知道爽了多少倍，虽然文件多，但是每个文件都不会太长，代码的可阅读性好了很多，而且在调试的时候可以很精确的找到代码区域，界面UI问题直接找到activity，网络逻辑问题直接找到Presenter类，开发效率成倍提升。</li>
+</ul>
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><p>以上虽然大致说了MVP模式中的主要几个文件，那个文件实现哪个，下面讲具体实现的方法</p>
+<h3 id="在Activity文件中"><a href="#在Activity文件中" class="headerlink" title="在Activity文件中"></a>在Activity文件中</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> <span class="keyword">implements</span> <span class="title">ILoginView</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> LoginPresenterCompl mLoginPresenter;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_login);</span><br><span class="line">        ButterKnife.bind(<span class="keyword">this</span>);</span><br><span class="line">        mLoginPresenter = <span class="keyword">new</span> LoginPresenterCompl(<span class="keyword">this</span>, <span class="keyword">this</span>);</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    ... <span class="comment">//实现ILoginView 和 组件的绑定</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在Activity中实现View接口的同时，保有Presenter实例，比如在绑定Click事件后，可以通过<code>mLoginPresenter.login()</code>来进行登录操作，使得Activity文件中只进行组件绑定和界面的操作，其他的逻辑写在Presenter中。</p>
+<h3 id="在Presnter类中"><a href="#在Presnter类中" class="headerlink" title="在Presnter类中"></a>在Presnter类中</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginPresenterCompl</span> <span class="keyword">implements</span> <span class="title">ILoginPresenter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ILoginView mloginView;</span><br><span class="line">    <span class="keyword">private</span> Context mContext;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LoginPresenterCompl</span><span class="params">(ILoginView view, Context context)</span> </span>&#123;</span><br><span class="line">        mloginView = view;</span><br><span class="line">        mContext = context;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在Presenter实现的时候，需要由View接口成员，若是有Model则还有Model接口成员，这样便可以讲View与Presenter的交互，当Presenter从服务端获取到数据时，便可以调用View的接口来进行界面UI的更新，这样便减少了Handler，和网络请求后复杂的回调函数。</p>
+<h3 id="在接口中"><a href="#在接口中" class="headerlink" title="在接口中"></a>在接口中</h3><p>在View接口中可以定义一些函数，比如:</p>
+<ul>
+<li>onSuccess() // 网络请求成功时界面的反应</li>
+<li>onFailure() // 网络请求失败时界面的反应</li>
+<li><p>showLoading() // 请求时出现loading框<br>…<br>在Presenter接口中就主要定义自己的业务逻辑，比如在登录时：</p>
+</li>
+<li><p>login(username, password);<br>…</p>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>使用MVP模式进行开发APP确实便利的不少，虽然可能在实现某些简单功能时会多很多文件，整个开发过程非常具有效率。当接口定义完后，编写代码思路就已经大致理清了，剩下的便是对大致的功能的具体实现，这个开发思路非常清晰。<br>而且我认为MVP模式最大的有点便是不需要在界面刷新上编写handler，这样也不需要定义各种message，并在每个回调函数中发送(在MVC模式中这些操作全是写在activity中)，没有了冗长的回调函数，activity文件变得干净了许多，代码更加的清晰，开发更加舒畅。</p>
+<h2 id="最后一点"><a href="#最后一点" class="headerlink" title="最后一点"></a>最后一点</h2><p>在编写MVP的时候，可以写将通用操作进行封装，比如弹loading框等操作，写在一个Base接口中，并让一个BaseActiviy去实现，再让所有的Activity去继承BaseActivity，这样会方便很多，后知后觉，项目写到后面已无力在大改。。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/16/android-MVP模式总结/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
 
   
-  <div class="category-all-page article-type-post show">
-    <h3>共计&nbsp;7&nbsp;个分类</h3>
-    <ul class="category-list">
-    
-      
-        <li class="category-list-item">
-          <span>Android<span style="color:grey;">(2)</span></span>
-          
-            <li class="category_post"><a href="/2019/03/17/android-OkHttp3总结与封装/">【Android】OkHttp3总结与封装</a></li>
-          
-            <li class="category_post"><a href="/2019/09/16/android-MVP模式总结/">【Android】MVP模式总结</a></li>
-          
-        </li>
-      
-    
-      
-        <li class="category-list-item">
-          <span>CTF<span style="color:grey;">(3)</span></span>
-          
-            <li class="category_post"><a href="/2018/10/29/CTF初次线下总结/">CTF初次线下总结</a></li>
-          
-            <li class="category_post"><a href="/2018/12/06/内网链路搭建总结/">内网链路搭建总结</a></li>
-          
-            <li class="category_post"><a href="/2018/12/07/nmap使用/">nmap使用</a></li>
-          
-        </li>
-      
-    
-      
-        <li class="category-list-item">
-          <span>FrontEnd<span style="color:grey;">(3)</span></span>
-          
-            <li class="category_post"><a href="/2018/10/21/nodejs-Express/">【NodeJS】Express框架</a></li>
-          
-            <li class="category_post"><a href="/2018/10/21/nodejs-基础知识/">【NodeJS】基础知识</a></li>
-          
-            <li class="category_post"><a href="/2019/08/03/vue-for-all/">Vue框架使用总结</a></li>
-          
-        </li>
-      
-    
-      
-        <li class="category-list-item">
-          <span>PWN<span style="color:grey;">(4)</span></span>
-          
-            <li class="category_post"><a href="/2018/11/22/pwn-漏洞函数笔记/">【PWN】漏洞函数笔记</a></li>
-          
-            <li class="category_post"><a href="/2018/12/14/堆的理解/">堆的理解</a></li>
-          
-            <li class="category_post"><a href="/2018/12/17/pwn-unlink/">【PWN】unlink exploit</a></li>
-          
-            <li class="category_post"><a href="/2018/12/24/pwn-格式化字符串/">【PWN】格式化字符串</a></li>
-          
-        </li>
-      
-    
-      
-        <li class="category-list-item">
-          <span>WriteUp<span style="color:grey;">(1)</span></span>
-          
-            <li class="category_post"><a href="/2018/12/19/Jarvis-OJ-PWN-level6-WriteUp/">Jarvis OJ PWN level6 WriteUp</a></li>
-          
-        </li>
-      
-    
-      
-        <li class="category-list-item">
-          <span>git<span style="color:grey;">(1)</span></span>
-          
-            <li class="category_post"><a href="/2019/02/27/git版本控制/">Git版本控制</a></li>
-          
-        </li>
-      
-    
-      
-        <li class="category-list-item">
-          <span>运维<span style="color:grey;">(1)</span></span>
-          
-            <li class="category_post"><a href="/2018/11/22/docker学习/">docker学习</a></li>
-          
-        </li>
-      
-    
-    </ul>
-  </div>
+<nav id="article-nav">
   
-  <style type="text/css">
-  .category_post {
-      margin: 30px 40px 30px 40px;
-  }
-  .category-all-page {
-    margin: 30px 40px 30px 40px;
-    position: relative;
-    min-height: 70vh;
   
-    h3 {
-      margin: 20px 0;
-    }
-    .category-all-title { text-align: center; }
+    <a href="/2019/08/03/vue-for-all/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue框架使用总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
-    .category-all { margin-top: 20px; }
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工程结构"><span class="toc-number">2.</span> <span class="toc-text">工程结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体实现"><span class="toc-number">3.</span> <span class="toc-text">具体实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在Activity文件中"><span class="toc-number">3.1.</span> <span class="toc-text">在Activity文件中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在Presnter类中"><span class="toc-number">3.2.</span> <span class="toc-text">在Presnter类中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在接口中"><span class="toc-number">3.3.</span> <span class="toc-text">在接口中</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后一点"><span class="toc-number">5.</span> <span class="toc-text">最后一点</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
   
-    .category-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
   
-    .category-list-item { margin: 10px 10px; }
   
-    .category-list-count {
-      color: grey;
-      &:before {
-        display: inline;
-        content: " ("
-      }
-      &:after {
-        display: inline;
-        content: ") "
-      }
-    }
+
   
-    .category-list-child { padding-left: 10px; }
-  }
-  </style>
-</article>
+
+  
+
+  
+
+
           </div>
         </div>
       </div>
@@ -305,10 +404,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",

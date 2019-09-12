@@ -153,6 +153,211 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-android-MVP模式总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/16/android-MVP模式总结/">【Android】MVP模式总结</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/16/android-MVP模式总结/" class="archive-article-date">
+  	<time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>在短学期的软件实训中编写了Android APP，尝试使用了MVP模式<br>查阅了许多资料以后，终于大致理解了如何将MVP模式应用在实际的代码编写上<br>总结一下，希望大家指正错误。</p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在开始学习MVP模式时，许多资料会给出一张结构图。<br><img src="/assets/image/MVP-structure.jpg" alt="structure"><br>对于MVP模式的理论，大概就是将UI操作和业务逻辑层分离，在View层中进行页面UI的更新，而将业务逻辑放在Presenter中，且View不直接操作Model，而是用过Presenter进行操作。<br>然而，在了解了MVP的理论之后，我依然不知道该从何下手使用MVP模式来构建Android应用。所以，我想从我刚写的实例出发，对MVP模式进行总结。</p>
+<h2 id="工程结构"><a href="#工程结构" class="headerlink" title="工程结构"></a>工程结构</h2><p>在我的实例中，我的工程模块目录是这样子的。<br><img src="/assets/image/MVP-category.png" alt="category"><br>按功能来进行划分模块，便于进行管理。每个文件功能如下：</p>
+<ul>
+<li>LoginActivity activity文件，实现ILoginView接口(因为界面操作需要)</li>
+<li>ILoginView MVP模式中的View接口，定义需要进行的界面UI操作，比如弹出加载框，按钮disable等等</li>
+<li>ILoginPresenter MVP模式中的Presenter接口，定义业务逻辑操作，比如使用retrofit进行请求登录，获取信息后更新model等操作</li>
+<li>LoginPresenterCompl 实现ILoginPresenter接口，具体实现网络请求的操作等等。<br>以上就是MVP模式中重要的的几个接口和实现类，当然若是由Model操作还需要定义一个Model接口和一个实现接口的类。<br>有些人可能会问，只一个登录功能就要定义这么多的文件，MVP这么麻烦？<br>而我只能说，当使用上了之后就会发现开发不知道爽了多少倍，虽然文件多，但是每个文件都不会太长，代码的可阅读性好了很多，而且在调试的时候可以很精确的找到代码区域，界面UI问题直接找到activity，网络逻辑问题直接找到Presenter类，开发效率成倍提升。</li>
+</ul>
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><p>以上虽然大致说了MVP模式中的主要几个文件，那个文件实现哪个，下面讲具体实现的方法</p>
+<h3 id="在Activity文件中"><a href="#在Activity文件中" class="headerlink" title="在Activity文件中"></a>在Activity文件中</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> <span class="keyword">implements</span> <span class="title">ILoginView</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> LoginPresenterCompl mLoginPresenter;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_login);</span><br><span class="line">        ButterKnife.bind(<span class="keyword">this</span>);</span><br><span class="line">        mLoginPresenter = <span class="keyword">new</span> LoginPresenterCompl(<span class="keyword">this</span>, <span class="keyword">this</span>);</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    ... <span class="comment">//实现ILoginView 和 组件的绑定</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在Activity中实现View接口的同时，保有Presenter实例，比如在绑定Click事件后，可以通过<code>mLoginPresenter.login()</code>来进行登录操作，使得Activity文件中只进行组件绑定和界面的操作，其他的逻辑写在Presenter中。</p>
+<h3 id="在Presnter类中"><a href="#在Presnter类中" class="headerlink" title="在Presnter类中"></a>在Presnter类中</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginPresenterCompl</span> <span class="keyword">implements</span> <span class="title">ILoginPresenter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ILoginView mloginView;</span><br><span class="line">    <span class="keyword">private</span> Context mContext;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LoginPresenterCompl</span><span class="params">(ILoginView view, Context context)</span> </span>&#123;</span><br><span class="line">        mloginView = view;</span><br><span class="line">        mContext = context;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在Presenter实现的时候，需要由View接口成员，若是有Model则还有Model接口成员，这样便可以讲View与Presenter的交互，当Presenter从服务端获取到数据时，便可以调用View的接口来进行界面UI的更新，这样便减少了Handler，和网络请求后复杂的回调函数。</p>
+<h3 id="在接口中"><a href="#在接口中" class="headerlink" title="在接口中"></a>在接口中</h3><p>在View接口中可以定义一些函数，比如:</p>
+<ul>
+<li>onSuccess() // 网络请求成功时界面的反应</li>
+<li>onFailure() // 网络请求失败时界面的反应</li>
+<li><p>showLoading() // 请求时出现loading框<br>…<br>在Presenter接口中就主要定义自己的业务逻辑，比如在登录时：</p>
+</li>
+<li><p>login(username, password);<br>…</p>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>使用MVP模式进行开发APP确实便利的不少，虽然可能在实现某些简单功能时会多很多文件，整个开发过程非常具有效率。当接口定义完后，编写代码思路就已经大致理清了，剩下的便是对大致的功能的具体实现，这个开发思路非常清晰。<br>而且我认为MVP模式最大的有点便是不需要在界面刷新上编写handler，这样也不需要定义各种message，并在每个回调函数中发送(在MVC模式中这些操作全是写在activity中)，没有了冗长的回调函数，activity文件变得干净了许多，代码更加的清晰，开发更加舒畅。</p>
+<h2 id="最后一点"><a href="#最后一点" class="headerlink" title="最后一点"></a>最后一点</h2><p>在编写MVP的时候，可以写将通用操作进行封装，比如弹loading框等操作，写在一个Base接口中，并让一个BaseActiviy去实现，再让所有的Activity去继承BaseActivity，这样会方便很多，后知后觉，项目写到后面已无力在大改。。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Android//" class="article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/16/android-MVP模式总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-vue-for-all" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/03/vue-for-all/">Vue框架使用总结</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/03/vue-for-all/" class="archive-article-date">
+  	<time datetime="2019-08-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-03</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Vue是目前比较流行的web前端框架，所以趁着暑假学习一波，于是写了自己的博客系统<br>项目地址: <a href="https://github.com/y4ngyy/blog-front-end" target="_blank" rel="noopener">前端</a> <a href="https://github.com/y4ngyy/blog-back-end" target="_blank" rel="noopener">后端</a><br>因为Vue框架的开发者文档写得非常完善，所以这篇文章不会包含Vue的基本用法<br>这篇文章旨在记录使用Vue开发spa(单页面应用程序)过程中的一些坑点，和tip</p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Vue是一个MVVM框架，所以在DOM操作上由之前的<code>getElementById()</code>操作DOM元素的方式转变为对对象属性的赋值，编写思维需要较大的转变，不过确实使开发便利了不少。</p>
+<h2 id="Vue-cli"><a href="#Vue-cli" class="headerlink" title="Vue-cli"></a>Vue-cli</h2><p>在熟悉了Vue的基础知识后，可以使用Vue-cli直接创建Vue项目工程，在这里需要注意自己使用node安装的Vue-cli的版本是<strong>3.x</strong>还是<strong>2.x</strong>，两个版本的Vue-cli的操作指令还是有所区别，在查询资料的时候需要注意，不然会很容易查错。</p>
+<h2 id="Vue-Router"><a href="#Vue-Router" class="headerlink" title="Vue-Router"></a>Vue-Router</h2><p>在构建单页应用的时候需要使用到Vue-router插件，这与Vue是分开的，需要另外安装，在安装完成后可以在生成的router.js文件中设置自己的路由。<br>Vue-router的文档也比较完善，可以在官网查询</p>
+<h2 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h2><h3 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h3><p>Vue框架并不集成ajax功能，所以需要自己另外寻找ajax模块，我所使用的是axios，还是比较轻便的<br>在安装完axios后，在main.js添加下列代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line">Vue.prototype.$http = axios;</span><br></pre></td></tr></table></figure>
+<p>这样就可以在所有组件中使用<code>this.$http({method:xx,url:xx}).then()</code>来使用ajax功能</p>
+<h3 id="属性操作"><a href="#属性操作" class="headerlink" title="属性操作"></a>属性操作</h3><p>在ajax请求完后，我们需要根据后端数据来更新响应的前端界面，这时候就会出现一些小坑。<br>当你这样编写时:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$http(&#123;</span><br><span class="line">    method: <span class="string">'get'</span>,</span><br><span class="line">    url: <span class="string">'/api/xxx'</span></span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    相关操作</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>会发现在<code>then()</code>的回调函数中this并不指向组件的Vue对象，也就是无法对Vue对象的属性进行操作。<br>解决的方法是使用箭头函数<code>()=&gt;{}</code>由于箭头函数会使用上下文的this对象，所以可以操作Vue对象</p>
+<h3 id="页面加载时请求"><a href="#页面加载时请求" class="headerlink" title="页面加载时请求"></a>页面加载时请求</h3><p>当在Vue对象中写好了ajax请求函数后，需要在页面打开时候就进行请求加载数据，我们可以在Vue对象创建的生命周期<code>created</code>中进行调用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name:<span class="string">''</span>,  </span><br><span class="line">  created() &#123;</span><br><span class="line">    <span class="keyword">this</span>.getArticleInfo();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>在Vue应用调试的时候还是踩了一些坑。在调试的时候需要接入后端的数据，那么问题来了，使用<code>npm run serve</code>打开的Vue应用与后端程序端口不一致，由于浏览器的同源策略，ajax无法获取到后端的数据。<br>这个问题有两个解决方法：</p>
+<ol>
+<li><p>把自己Vue应用<code>npm run build</code>，把静态文件放到后端程序中一起调试(无比的傻)，虽然傻，但也是一种办法，只是每次调试的时候都要build一次而已…</p>
+</li>
+<li><p>设置代理(正确姿势)，创建vue.config.js文件(工程本身可能没有生成，若是生成了可以直接使用)，在其中添加下列代码，设置后端程序的地址端口，旨在将在<code>serve</code>时没有找到的路由转发到设置的地址中。</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    devServer: &#123;</span><br><span class="line">        proxy:<span class="string">"http://localhost:5000"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>在部署的时候，我的选择是使用nginx在部署静态文件，然后后端(express)另起端口，使用nginx设置代理将相关的后端请求转发。我的后端数据路由全在<code>/api</code>中，所以在nginx中设置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /api &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:5000;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有一个点，在部署单页应用的时候，路由为虚拟路由，也就是如果以直接输入url的方式访问除了index的地址时都会404，所以需要在nginx中设置将404交给index.html处理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    <span class="comment"># First attempt to serve request as file, then</span></span><br><span class="line">    <span class="comment"># as directory, then fall back to displaying a 404.</span></span><br><span class="line">    try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/FrontEnd//" class="article-tag-list-link color4">FrontEnd</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/03/vue-for-all/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-android-OkHttp3总结与封装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -906,175 +1111,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/12/06/内网链路搭建总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-docker学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/22/docker学习/">docker学习</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/22/docker学习/" class="archive-article-date">
-  	<time datetime="2018-11-22T10:44:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        
-      </header>
-    
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天白天摸了一下docker，晚上来总结一波。<br>首先安装docker，鉴于之前装了双系统后面发现没用的经验，直接用windows安装了docker，docker-windows只支持win10 pro和企业版，较早版本的windows只能安装docker-toolbox来使用docker。<br>装完后可能会有个更换国内源的问题：<code>docker-machine ssh default</code>进入虚拟机，然后<code>vi /var/lib/boot2docker/profile</code>，加一行<code>--registry-mirror=国内源</code><br>接下来一些命令：<br>拉取镜像</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull 镜像名</span><br></pre></td></tr></table></figure>
-<p>删除镜像</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image rm 镜像名</span><br></pre></td></tr></table></figure>
-<p>镜像列表</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
-<p>创建容器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 本机端口:容器端口 -d(后台运行) --name 容器命名 --rm(若容器停止则立即删除) 要使用的镜像名</span><br></pre></td></tr></table></figure>
-<p>将本机的文件挂载到容器中</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d 镜像名(nginx apache……) -v <span class="variable">$PWD</span>/html:/usr/share/www/html</span><br></pre></td></tr></table></figure>
-<p>查看容器运行进程</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
-<p>查看容器日志</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs 容器名</span><br></pre></td></tr></table></figure>
-<p>要创建更加完整的环境，大概有两种方法，第一种是用Dockerfile创建linux容器并在其中下载配置相应的环境。第二种是使用多容器协同的方式使用。(Dockerfile要相对简单一些)</p>
-<p>之后再找时间继续学习Dockerfile的具体部署。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/22/docker学习/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-pwn-漏洞函数笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/22/pwn-漏洞函数笔记/">【PWN】漏洞函数笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/22/pwn-漏洞函数笔记/" class="archive-article-date">
-  	<time datetime="2018-11-22T10:44:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        
-      </header>
-    
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="snprintf"><a href="#snprintf" class="headerlink" title="snprintf"></a>snprintf</h2><p><code>snprintf()</code>，函数原型为<code>int snprintf(char *str, size_t size, const char *format, …)</code><br>将可变个参数(…)按照format格式化成字符串，然后将其复制到str中 (1) 如果格式化后的字符串长度 &lt; size，则将此字符串全部复制到str中，并给其后添加一个字符串结束符(‘\0’)； (2) 如果格式化后的字符串长度 &gt;= size，则只将其中的(size-1)个字符复制到str中，并给其后添加一个字符串结束符(‘\0’)，返回值为欲写入的字符串长度。<br><em>漏洞点</em>：函数返回值为<strong>欲写入的字符串长度</strong>，若用来做数组下标，可能会产生溢出。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/PWN//" class="article-tag-list-link color4">PWN</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/22/pwn-漏洞函数笔记/">展开全文 >></a>
         </p>
       
 

@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: FrontEnd | y4ngyy</title>
+  <title>Vue框架使用总结 | y4ngyy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="无所事事,游手好闲">
-<meta property="og:type" content="website">
-<meta property="og:title" content="y4ngyy">
-<meta property="og:url" content="http://yoursite.com/categories/FrontEnd/index.html">
+  <meta name="description" content="Vue是目前比较流行的web前端框架，所以趁着暑假学习一波，于是写了自己的博客系统项目地址: 前端 后端因为Vue框架的开发者文档写得非常完善，所以这篇文章不会包含Vue的基本用法这篇文章旨在记录使用Vue开发spa(单页面应用程序)过程中的一些坑点，和tip  前言Vue是一个MVVM框架，所以在DOM操作上由之前的getElementById()操作DOM元素的方式转变为对对象属性的赋值，编">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue框架使用总结">
+<meta property="og:url" content="http://yoursite.com/2019/08/03/vue-for-all/index.html">
 <meta property="og:site_name" content="y4ngyy">
-<meta property="og:description" content="无所事事,游手好闲">
+<meta property="og:description" content="Vue是目前比较流行的web前端框架，所以趁着暑假学习一波，于是写了自己的博客系统项目地址: 前端 后端因为Vue框架的开发者文档写得非常完善，所以这篇文章不会包含Vue的基本用法这篇文章旨在记录使用Vue开发spa(单页面应用程序)过程中的一些坑点，和tip  前言Vue是一个MVVM框架，所以在DOM操作上由之前的getElementById()操作DOM元素的方式转变为对对象属性的赋值，编">
 <meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2019-08-05T03:48:19.030Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="y4ngyy">
-<meta name="twitter:description" content="无所事事,游手好闲">
+<meta name="twitter:title" content="Vue框架使用总结">
+<meta name="twitter:description" content="Vue是目前比较流行的web前端框架，所以趁着暑假学习一波，于是写了自己的博客系统项目地址: 前端 后端因为Vue框架的开发者文档写得非常完善，所以这篇文章不会包含Vue的基本用法这篇文章旨在记录使用Vue开发spa(单页面应用程序)过程中的一些坑点，和tip  前言Vue是一个MVVM框架，所以在DOM操作上由之前的getElementById()操作DOM元素的方式转变为对对象属性的赋值，编">
   
     <link rel="alternative" href="/atom.xml" title="y4ngyy" type="application/atom+xml">
   
@@ -151,140 +152,243 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article class="article article-type-post show">
-  <header class="article-header">
-  <h1 class="article-title" itemprop="name">
+            <article id="post-vue-for-all" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-  </h1>
-  </header>
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue框架使用总结
+    </h1>
+  
+
+        
+        <a href="/2019/08/03/vue-for-all/" class="archive-article-date">
+  	<time datetime="2019-08-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-03</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+      <span class="btn-bg"></span>
+      <span class="btn-text">文章导航</span>
+      </p>
+<div id="toc-article" class="toc-article">
+    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+    <strong class="toc-title">文章目录</strong>
+       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-cli"><span class="toc-number">2.</span> <span class="toc-text">Vue-cli</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-Router"><span class="toc-number">3.</span> <span class="toc-text">Vue-Router</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax"><span class="toc-number">4.</span> <span class="toc-text">ajax</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#axios"><span class="toc-number">4.1.</span> <span class="toc-text">axios</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性操作"><span class="toc-number">4.2.</span> <span class="toc-text">属性操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#页面加载时请求"><span class="toc-number">4.3.</span> <span class="toc-text">页面加载时请求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调试"><span class="toc-number">5.</span> <span class="toc-text">调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署"><span class="toc-number">6.</span> <span class="toc-text">部署</span></a></li></ol>
+     </div>
+<script type="text/javascript">
+function showToc(){
+    var toc_article = document.getElementById("toc-article");
+    var show_toc_btn = document.getElementById("show-toc-btn");
+    toc_article.setAttribute("style","display:block");
+    show_toc_btn.setAttribute("style","display:none");
+    };
+function showBtn(){
+    var toc_article = document.getElementById("toc-article");
+    var show_toc_btn = document.getElementById("show-toc-btn");
+    toc_article.setAttribute("style","display:none");
+    show_toc_btn.setAttribute("style","display:block");
+    };
+</script>
+  
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Vue是目前比较流行的web前端框架，所以趁着暑假学习一波，于是写了自己的博客系统<br>项目地址: <a href="https://github.com/y4ngyy/blog-front-end" target="_blank" rel="noopener">前端</a> <a href="https://github.com/y4ngyy/blog-back-end" target="_blank" rel="noopener">后端</a><br>因为Vue框架的开发者文档写得非常完善，所以这篇文章不会包含Vue的基本用法<br>这篇文章旨在记录使用Vue开发spa(单页面应用程序)过程中的一些坑点，和tip</p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Vue是一个MVVM框架，所以在DOM操作上由之前的<code>getElementById()</code>操作DOM元素的方式转变为对对象属性的赋值，编写思维需要较大的转变，不过确实使开发便利了不少。</p>
+<h2 id="Vue-cli"><a href="#Vue-cli" class="headerlink" title="Vue-cli"></a>Vue-cli</h2><p>在熟悉了Vue的基础知识后，可以使用Vue-cli直接创建Vue项目工程，在这里需要注意自己使用node安装的Vue-cli的版本是<strong>3.x</strong>还是<strong>2.x</strong>，两个版本的Vue-cli的操作指令还是有所区别，在查询资料的时候需要注意，不然会很容易查错。</p>
+<h2 id="Vue-Router"><a href="#Vue-Router" class="headerlink" title="Vue-Router"></a>Vue-Router</h2><p>在构建单页应用的时候需要使用到Vue-router插件，这与Vue是分开的，需要另外安装，在安装完成后可以在生成的router.js文件中设置自己的路由。<br>Vue-router的文档也比较完善，可以在官网查询</p>
+<h2 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h2><h3 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h3><p>Vue框架并不集成ajax功能，所以需要自己另外寻找ajax模块，我所使用的是axios，还是比较轻便的<br>在安装完axios后，在main.js添加下列代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line">Vue.prototype.$http = axios;</span><br></pre></td></tr></table></figure>
+<p>这样就可以在所有组件中使用<code>this.$http({method:xx,url:xx}).then()</code>来使用ajax功能</p>
+<h3 id="属性操作"><a href="#属性操作" class="headerlink" title="属性操作"></a>属性操作</h3><p>在ajax请求完后，我们需要根据后端数据来更新响应的前端界面，这时候就会出现一些小坑。<br>当你这样编写时:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$http(&#123;</span><br><span class="line">    method: <span class="string">'get'</span>,</span><br><span class="line">    url: <span class="string">'/api/xxx'</span></span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    相关操作</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>会发现在<code>then()</code>的回调函数中this并不指向组件的Vue对象，也就是无法对Vue对象的属性进行操作。<br>解决的方法是使用箭头函数<code>()=&gt;{}</code>由于箭头函数会使用上下文的this对象，所以可以操作Vue对象</p>
+<h3 id="页面加载时请求"><a href="#页面加载时请求" class="headerlink" title="页面加载时请求"></a>页面加载时请求</h3><p>当在Vue对象中写好了ajax请求函数后，需要在页面打开时候就进行请求加载数据，我们可以在Vue对象创建的生命周期<code>created</code>中进行调用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name:<span class="string">''</span>,  </span><br><span class="line">  created() &#123;</span><br><span class="line">    <span class="keyword">this</span>.getArticleInfo();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>在Vue应用调试的时候还是踩了一些坑。在调试的时候需要接入后端的数据，那么问题来了，使用<code>npm run serve</code>打开的Vue应用与后端程序端口不一致，由于浏览器的同源策略，ajax无法获取到后端的数据。<br>这个问题有两个解决方法：</p>
+<ol>
+<li><p>把自己Vue应用<code>npm run build</code>，把静态文件放到后端程序中一起调试(无比的傻)，虽然傻，但也是一种办法，只是每次调试的时候都要build一次而已…</p>
+</li>
+<li><p>设置代理(正确姿势)，创建vue.config.js文件(工程本身可能没有生成，若是生成了可以直接使用)，在其中添加下列代码，设置后端程序的地址端口，旨在将在<code>serve</code>时没有找到的路由转发到设置的地址中。</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    devServer: &#123;</span><br><span class="line">        proxy:<span class="string">"http://localhost:5000"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>在部署的时候，我的选择是使用nginx在部署静态文件，然后后端(express)另起端口，使用nginx设置代理将相关的后端请求转发。我的后端数据路由全在<code>/api</code>中，所以在nginx中设置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /api &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:5000;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有一个点，在部署单页应用的时候，路由为虚拟路由，也就是如果以直接输入url的方式访问除了index的地址时都会404，所以需要在nginx中设置将404交给index.html处理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    <span class="comment"># First attempt to serve request as file, then</span></span><br><span class="line">    <span class="comment"># as directory, then fall back to displaying a 404.</span></span><br><span class="line">    try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/FrontEnd//" class="article-tag-list-link color4">FrontEnd</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/03/vue-for-all/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
 
   
-  <div class="category-all-page article-type-post show">
-    <h3>共计&nbsp;7&nbsp;个分类</h3>
-    <ul class="category-list">
-    
-      
-        <li class="category-list-item">
-          <span>Android<span style="color:grey;">(2)</span></span>
-          
-            <li class="category_post"><a href="/2019/03/17/android-OkHttp3总结与封装/">【Android】OkHttp3总结与封装</a></li>
-          
-            <li class="category_post"><a href="/2019/09/16/android-MVP模式总结/">【Android】MVP模式总结</a></li>
-          
-        </li>
-      
-    
-      
-        <li class="category-list-item">
-          <span>CTF<span style="color:grey;">(3)</span></span>
-          
-            <li class="category_post"><a href="/2018/10/29/CTF初次线下总结/">CTF初次线下总结</a></li>
-          
-            <li class="category_post"><a href="/2018/12/06/内网链路搭建总结/">内网链路搭建总结</a></li>
-          
-            <li class="category_post"><a href="/2018/12/07/nmap使用/">nmap使用</a></li>
-          
-        </li>
-      
-    
-      
-        <li class="category-list-item">
-          <span>FrontEnd<span style="color:grey;">(3)</span></span>
-          
-            <li class="category_post"><a href="/2018/10/21/nodejs-Express/">【NodeJS】Express框架</a></li>
-          
-            <li class="category_post"><a href="/2018/10/21/nodejs-基础知识/">【NodeJS】基础知识</a></li>
-          
-            <li class="category_post"><a href="/2019/08/03/vue-for-all/">Vue框架使用总结</a></li>
-          
-        </li>
-      
-    
-      
-        <li class="category-list-item">
-          <span>PWN<span style="color:grey;">(4)</span></span>
-          
-            <li class="category_post"><a href="/2018/11/22/pwn-漏洞函数笔记/">【PWN】漏洞函数笔记</a></li>
-          
-            <li class="category_post"><a href="/2018/12/14/堆的理解/">堆的理解</a></li>
-          
-            <li class="category_post"><a href="/2018/12/17/pwn-unlink/">【PWN】unlink exploit</a></li>
-          
-            <li class="category_post"><a href="/2018/12/24/pwn-格式化字符串/">【PWN】格式化字符串</a></li>
-          
-        </li>
-      
-    
-      
-        <li class="category-list-item">
-          <span>WriteUp<span style="color:grey;">(1)</span></span>
-          
-            <li class="category_post"><a href="/2018/12/19/Jarvis-OJ-PWN-level6-WriteUp/">Jarvis OJ PWN level6 WriteUp</a></li>
-          
-        </li>
-      
-    
-      
-        <li class="category-list-item">
-          <span>git<span style="color:grey;">(1)</span></span>
-          
-            <li class="category_post"><a href="/2019/02/27/git版本控制/">Git版本控制</a></li>
-          
-        </li>
-      
-    
-      
-        <li class="category-list-item">
-          <span>运维<span style="color:grey;">(1)</span></span>
-          
-            <li class="category_post"><a href="/2018/11/22/docker学习/">docker学习</a></li>
-          
-        </li>
-      
-    
-    </ul>
-  </div>
+<nav id="article-nav">
   
-  <style type="text/css">
-  .category_post {
-      margin: 30px 40px 30px 40px;
-  }
-  .category-all-page {
-    margin: 30px 40px 30px 40px;
-    position: relative;
-    min-height: 70vh;
+    <a href="/2019/09/16/android-MVP模式总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【Android】MVP模式总结
+        
+      </div>
+    </a>
   
-    h3 {
-      margin: 20px 0;
-    }
-    .category-all-title { text-align: center; }
   
-    .category-all { margin-top: 20px; }
+    <a href="/2019/03/17/android-OkHttp3总结与封装/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Android】OkHttp3总结与封装</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
-    .category-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-cli"><span class="toc-number">2.</span> <span class="toc-text">Vue-cli</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-Router"><span class="toc-number">3.</span> <span class="toc-text">Vue-Router</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax"><span class="toc-number">4.</span> <span class="toc-text">ajax</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#axios"><span class="toc-number">4.1.</span> <span class="toc-text">axios</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性操作"><span class="toc-number">4.2.</span> <span class="toc-text">属性操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#页面加载时请求"><span class="toc-number">4.3.</span> <span class="toc-text">页面加载时请求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调试"><span class="toc-number">5.</span> <span class="toc-text">调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署"><span class="toc-number">6.</span> <span class="toc-text">部署</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
   
-    .category-list-item { margin: 10px 10px; }
   
-    .category-list-count {
-      color: grey;
-      &:before {
-        display: inline;
-        content: " ("
-      }
-      &:after {
-        display: inline;
-        content: ") "
-      }
-    }
   
-    .category-list-child { padding-left: 10px; }
-  }
-  </style>
-</article>
+
+  
+
+  
+
+  
+
+
           </div>
         </div>
       </div>
@@ -305,10 +409,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",

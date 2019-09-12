@@ -153,6 +153,175 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-docker学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/22/docker学习/">docker学习</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/22/docker学习/" class="archive-article-date">
+  	<time datetime="2018-11-22T10:44:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天白天摸了一下docker，晚上来总结一波。<br>首先安装docker，鉴于之前装了双系统后面发现没用的经验，直接用windows安装了docker，docker-windows只支持win10 pro和企业版，较早版本的windows只能安装docker-toolbox来使用docker。<br>装完后可能会有个更换国内源的问题：<code>docker-machine ssh default</code>进入虚拟机，然后<code>vi /var/lib/boot2docker/profile</code>，加一行<code>--registry-mirror=国内源</code><br>接下来一些命令：<br>拉取镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull 镜像名</span><br></pre></td></tr></table></figure>
+<p>删除镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image rm 镜像名</span><br></pre></td></tr></table></figure>
+<p>镜像列表</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+<p>创建容器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 本机端口:容器端口 -d(后台运行) --name 容器命名 --rm(若容器停止则立即删除) 要使用的镜像名</span><br></pre></td></tr></table></figure>
+<p>将本机的文件挂载到容器中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d 镜像名(nginx apache……) -v <span class="variable">$PWD</span>/html:/usr/share/www/html</span><br></pre></td></tr></table></figure>
+<p>查看容器运行进程</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<p>查看容器日志</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs 容器名</span><br></pre></td></tr></table></figure>
+<p>要创建更加完整的环境，大概有两种方法，第一种是用Dockerfile创建linux容器并在其中下载配置相应的环境。第二种是使用多容器协同的方式使用。(Dockerfile要相对简单一些)</p>
+<p>之后再找时间继续学习Dockerfile的具体部署。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/22/docker学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-pwn-漏洞函数笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/22/pwn-漏洞函数笔记/">【PWN】漏洞函数笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/22/pwn-漏洞函数笔记/" class="archive-article-date">
+  	<time datetime="2018-11-22T10:44:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="snprintf"><a href="#snprintf" class="headerlink" title="snprintf"></a>snprintf</h2><p><code>snprintf()</code>，函数原型为<code>int snprintf(char *str, size_t size, const char *format, …)</code><br>将可变个参数(…)按照format格式化成字符串，然后将其复制到str中 (1) 如果格式化后的字符串长度 &lt; size，则将此字符串全部复制到str中，并给其后添加一个字符串结束符(‘\0’)； (2) 如果格式化后的字符串长度 &gt;= size，则只将其中的(size-1)个字符复制到str中，并给其后添加一个字符串结束符(‘\0’)，返回值为欲写入的字符串长度。<br><em>漏洞点</em>：函数返回值为<strong>欲写入的字符串长度</strong>，若用来做数组下标，可能会产生溢出。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/PWN//" class="article-tag-list-link color4">PWN</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/22/pwn-漏洞函数笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CTF初次线下总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -252,6 +421,90 @@
 
 
   
+    <article id="post-nodejs-基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/21/nodejs-基础知识/">【NodeJS】基础知识</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/21/nodejs-基础知识/" class="archive-article-date">
+  	<time datetime="2018-10-21T13:22:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-21</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="nodejs基础"><a href="#nodejs基础" class="headerlink" title="nodejs基础"></a>nodejs基础</h2><p>nodejs允许自己封装模块，使得编写程序可以模块化，便于维护整理。在一个js文件中写完封装的函数或对象后，可以使用<code>exports</code>或<code>module.exports</code>来将模块中的函数暴露给程序，使得整<br>个程序可以使用，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HelloWorld</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello, node-js!'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports.HelloWorld = HelloWorld;</span><br></pre></td></tr></table></figure>
+<p>要使用其他模块中的方法时，需要使用<code>require</code>来导入模块，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> helloWorld = <span class="built_in">require</span>(<span class="string">'./helloword'</span>);</span><br></pre></td></tr></table></figure>
+<p>再说回<code>exports</code>和<code>module.exports</code>，两者的功能相同，区别在于，<code>exports</code>是<code>module.exports</code>的缩略写法，如下写法是相同意思：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports.HelloWorld = HelloWorld;</span><br><span class="line">exports.HelloWorld = HelloWorld;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/10/21/nodejs-基础知识/#more">更多 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/FrontEnd//" class="article-tag-list-link color4">FrontEnd</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/21/nodejs-基础知识/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-nodejs-Express" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -308,90 +561,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/10/21/nodejs-Express/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-nodejs-基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/21/nodejs-基础知识/">【NodeJS】基础知识</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/21/nodejs-基础知识/" class="archive-article-date">
-  	<time datetime="2018-10-21T13:22:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-21</time>
-</a>
-        
-      </header>
-    
-    <!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="nodejs基础"><a href="#nodejs基础" class="headerlink" title="nodejs基础"></a>nodejs基础</h2><p>nodejs允许自己封装模块，使得编写程序可以模块化，便于维护整理。在一个js文件中写完封装的函数或对象后，可以使用<code>exports</code>或<code>module.exports</code>来将模块中的函数暴露给程序，使得整<br>个程序可以使用，如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HelloWorld</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello, node-js!'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports.HelloWorld = HelloWorld;</span><br></pre></td></tr></table></figure>
-<p>要使用其他模块中的方法时，需要使用<code>require</code>来导入模块，如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> helloWorld = <span class="built_in">require</span>(<span class="string">'./helloword'</span>);</span><br></pre></td></tr></table></figure>
-<p>再说回<code>exports</code>和<code>module.exports</code>，两者的功能相同，区别在于，<code>exports</code>是<code>module.exports</code>的缩略写法，如下写法是相同意思：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports.HelloWorld = HelloWorld;</span><br><span class="line">exports.HelloWorld = HelloWorld;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/10/21/nodejs-基础知识/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/FrontEnd//" class="article-tag-list-link color4">FrontEnd</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/21/nodejs-基础知识/">展开全文 >></a>
         </p>
       
 
