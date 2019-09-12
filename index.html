@@ -179,8 +179,8 @@
         <blockquote>
 <p>在短学期的软件实训中编写了Android APP，尝试使用了MVP模式<br>查阅了许多资料以后，终于大致理解了如何将MVP模式应用在实际的代码编写上<br>总结一下，希望大家指正错误。</p>
 </blockquote>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在开始学习MVP模式时，许多资料会给出一张结构图。<br><img src="/assets/image/MVP-structure.jpg" alt="structure"><br>对于MVP模式的理论，大概就是将UI操作和业务逻辑层分离，在View层中进行页面UI的更新，而将业务逻辑放在Presenter中，且View不直接操作Model，而是用过Presenter进行操作。<br>然而，在了解了MVP的理论之后，我依然不知道该从何下手使用MVP模式来构建Android应用。所以，我想从我刚写的实例出发，对MVP模式进行总结。</p>
-<h2 id="工程结构"><a href="#工程结构" class="headerlink" title="工程结构"></a>工程结构</h2><p>在我的实例中，我的工程模块目录是这样子的。<br><img src="/assets/image/MVP-category.png" alt="category"><br>按功能来进行划分模块，便于进行管理。每个文件功能如下：</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在开始学习MVP模式时，许多资料会给出一张结构图。<br><img src="/assets/images/MVP-structure.jpg" alt="structure"><br>对于MVP模式的理论，大概就是将UI操作和业务逻辑层分离，在View层中进行页面UI的更新，而将业务逻辑放在Presenter中，且View不直接操作Model，而是用过Presenter进行操作。<br>然而，在了解了MVP的理论之后，我依然不知道该从何下手使用MVP模式来构建Android应用。所以，我想从我刚写的实例出发，对MVP模式进行总结。</p>
+<h2 id="工程结构"><a href="#工程结构" class="headerlink" title="工程结构"></a>工程结构</h2><p>在我的实例中，我的工程模块目录是这样子的。<br><img src="/assets/images/MVP-category.png" alt="category"><br>按功能来进行划分模块，便于进行管理。每个文件功能如下：</p>
 <ul>
 <li>LoginActivity activity文件，实现ILoginView接口(因为界面操作需要)</li>
 <li>ILoginView MVP模式中的View接口，定义需要进行的界面UI操作，比如弹出加载框，按钮disable等等</li>
